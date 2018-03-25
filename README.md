@@ -1,6 +1,6 @@
 # PatternProject
 ## Information
-This project is a pattern project. You can use it as a template to start.
+*This project is a pattern project. You can use it as a template to start.*
 
 ## Continuous Integration Information
 
