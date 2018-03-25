@@ -3,6 +3,7 @@
 *This project is a pattern project. You can use it as a template to start.*
 
 ## Continuous Integration Information
+[![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject)
 
 ## Import Information
 1. *You must "**clone**" on your GitHub or "**download**" this project*
