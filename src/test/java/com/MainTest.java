@@ -3,6 +3,9 @@ package com;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 
 public class MainTest {
@@ -33,6 +36,20 @@ public class MainTest {
 
     @Test
     public void main() {
+        PrintStream consoleStream = System.out;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteArrayOutputStream));
+
         Main.main(null);
+
+        System.setOut(consoleStream);
+
+        String result = byteArrayOutputStream.toString();
+        String mustBe = "true" + System.lineSeparator() +
+                "true" + System.lineSeparator() +
+                "5" + System.lineSeparator() +
+                "1" + System.lineSeparator();
+
+        assertEquals(result, mustBe);
     }
 }
