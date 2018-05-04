@@ -19,6 +19,7 @@ If you want to use this project:
 * **Programming Language:** Java
 * **Build System:** [Maven](https://maven.apache.org/)
 * **Automated Testing:** [JUnit4](https://junit.org/junit4/)
+* **Mutation Testing:** [Pitest](http://pitest.org/)
 * **Continuous Integration:** [Travis CI](https://travis-ci.org/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Other External Libraries:** 
