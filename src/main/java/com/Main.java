@@ -16,12 +16,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        val main = new Main();
-
         System.out.println(Main.isBigger(10, 6));
         System.out.println(Main.isBigger(11, 4));
 
+        val main = new Main();
         System.out.println(main.divide(10, 2));
         System.out.println(main.divide(5, 4));
+//        main = new Main(); // Cannot assign a value to final variable 'main'
     }
 }
