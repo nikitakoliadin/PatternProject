@@ -13,20 +13,23 @@ public class MainTest {
     private Main main;
 
     @Before
-    public void init() {
+    public void setUp() {
         main = new Main();
     }
 
     @Test
-    public void isBigger() {
+    public void shouldBigger() {
         assertTrue(Main.isBigger(6,3));
-        assertTrue(Main.isBigger(5,4));
+    }
+
+    @Test
+    public void shouldNotBigger() {
         assertFalse(Main.isBigger(5, 5));
     }
 
     @Test
-    public void divide() {
-        assertEquals(main.divide(10, 2), 5);
+    public void shouldDivide() {
+        assertEquals(5, main.divide(10, 2));
     }
 
     @Test(expected = ArithmeticException.class)
