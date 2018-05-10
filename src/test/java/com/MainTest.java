@@ -33,12 +33,12 @@ public class MainTest {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void shouldThrowExceptionArithmeticException() {
+    public void shouldThrowArithmeticException() {
         main.divide(10, 0);
     }
 
     @Test
-    public void main() {
+    public void shouldEqualsOutputToConsole() {
         PrintStream consoleStream = System.out;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(byteArrayOutputStream));
@@ -47,12 +47,12 @@ public class MainTest {
 
         System.setOut(consoleStream);
 
-        String result = byteArrayOutputStream.toString();
-        String mustBe = "true" + System.lineSeparator() +
+        String actual = byteArrayOutputStream.toString();
+        String expected = "true" + System.lineSeparator() +
                 "true" + System.lineSeparator() +
                 "5" + System.lineSeparator() +
                 "1" + System.lineSeparator();
 
-        assertEquals(result, mustBe);
+        assertEquals(expected, actual);
     }
 }
