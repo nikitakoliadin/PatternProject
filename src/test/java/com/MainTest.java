@@ -48,10 +48,10 @@ public class MainTest {
         System.setOut(consoleStream);
 
         String actual = byteArrayOutputStream.toString();
-        String expected = "true" + System.lineSeparator() +
-                "true" + System.lineSeparator() +
-                "5" + System.lineSeparator() +
-                "1" + System.lineSeparator();
+        String expected = "Main.isBigger: true" + System.lineSeparator() +
+                "Main.isBigger: true" + System.lineSeparator() +
+                "main.divide: 5" + System.lineSeparator() +
+                "main.divide: 1" + System.lineSeparator();
 
         assertEquals(expected, actual);
     }
