@@ -17,11 +17,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Project name -->
+        <!-- Project setting -->
         <project.name>PatternProject</project.name>
+        <project.mainClass>com.Main</project.mainClass>
 
         <!-- Compiler plugin -->
-        <compilerplugin.version>3.7.0</compilerplugin.version>
+        <compilerPlugin.version>3.7.0</compilerPlugin.version>
 
         <!-- JetBrains -->
         <jetbrains.version>16.0.1</jetbrains.version>
@@ -45,7 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compilerplugin.version}</version>
+                <version>${compilerPlugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -59,7 +60,7 @@
                     <finalName>${project.name}</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>com.Main</mainClass>
+                            <mainClass>${project.mainClass}</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
