@@ -19,7 +19,7 @@
 
         <!-- Project setting -->
         <project.name>PatternProject</project.name>
-        <project.mainClass>com.Main</project.mainClass>
+        <project.mainClass>com.patternproject.Main</project.mainClass>
 
         <!-- Compiler plugin -->
         <compilerPlugin.version>3.7.0</compilerPlugin.version>
