@@ -24,6 +24,12 @@
         <!-- Compiler plugin -->
         <compilerPlugin.version>3.7.0</compilerPlugin.version>
 
+        <!-- JaCoCo plugin -->
+        <jacoco.version>0.8.1</jacoco.version>
+
+        <!-- Pitest plugin -->
+        <pitest.version>1.4.0</pitest.version>
+
         <!-- JetBrains -->
         <jetbrains.version>16.0.1</jetbrains.version>
 
@@ -33,11 +39,8 @@
         <!-- JUnit -->
         <junit.version>4.12</junit.version>
 
-        <!-- JaCoCo -->
-        <jacoco.version>0.8.1</jacoco.version>
-
-        <!-- Pitest -->
-        <pitest.version>1.4.0</pitest.version>
+        <!-- AssertJ plugin -->
+        <assertj.version>3.9.1</assertj.version>
     </properties>
 
     <build>
@@ -143,6 +146,14 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
