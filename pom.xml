@@ -39,8 +39,11 @@
         <!-- JUnit -->
         <junit.version>4.12</junit.version>
 
-        <!-- AssertJ plugin -->
+        <!-- AssertJ -->
         <assertj.version>3.9.1</assertj.version>
+
+        <!-- Mockito -->
+        <mockito.version>2.18.3</mockito.version>
     </properties>
 
     <build>
@@ -155,6 +158,14 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
