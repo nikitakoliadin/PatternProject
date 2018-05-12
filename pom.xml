@@ -111,6 +111,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <threads>2</threads>
+                    <timeoutConstant>10000</timeoutConstant>
                 </configuration>
                 <executions>
                     <execution>
