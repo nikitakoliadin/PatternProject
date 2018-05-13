@@ -1,6 +1,6 @@
 # PatternProject
 ## Project Information
-This project is a pattern project. You can use it as a template to start.
+This project is a pattern project. You can use it as a template to start. For an example of implementation, I took a calculator that I realized using Java Script Engine - [Nashorn](https://en.wikipedia.org/wiki/Nashorn_(JavaScript_engine))
 
 | Technology  | Badge |
 |:-----------:|:-----:|
@@ -23,6 +23,8 @@ If you want to use this project:
 * **Continuous Integration:** [Travis CI](https://travis-ci.org/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Other External Libraries:** 
+    * [AssertJ](http://joel-costigliola.github.io/assertj/)
+    * [Mockito](http://site.mockito.org/)
 	* [Lombok](https://projectlombok.org/)
 	* [JetBrains annotations](https://blog.jetbrains.com/dotnet/2015/08/12/how-to-use-jetbrains-annotations-to-improve-resharper-inspections/)
 
