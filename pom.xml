@@ -31,7 +31,7 @@
         <pitest.version>1.4.0</pitest.version>
 
         <!-- JetBrains -->
-        <jetbrains.version>16.0.1</jetbrains.version>
+        <jetbrains.version>16.0.2</jetbrains.version>
 
         <!-- Lombok -->
         <projectlombok.version>1.16.20</projectlombok.version>
@@ -114,7 +114,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <threads>2</threads>
-                    <timeoutConstant>10000</timeoutConstant>
+                    <timeoutConstant>20000</timeoutConstant>
                 </configuration>
                 <executions>
                     <execution>
