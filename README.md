@@ -2,10 +2,11 @@
 ## Project Information
 This project is a pattern project. You can use it as a template to start. For an example of implementation, I took a calculator that I realized using Java Script Engine - [Nashorn](https://en.wikipedia.org/wiki/Nashorn_(JavaScript_engine))
 
-| Technology  | Badge |
-|:-----------:|:-----:|
-| Travis CI   | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
-| Codecov     | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
+| Technology     | Badge |
+|:--------------:|:-----:|
+| Travis CI      | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
+| Codecov        | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
+| Scrutinizer CI | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/?branch=master) |
 
 ## Import Information
 If you want to use this project:
@@ -20,7 +21,9 @@ If you want to use this project:
 * **Build System:** [Maven](https://maven.apache.org/)
 * **Automated Testing:** [JUnit4](https://junit.org/junit4/)
 * **Mutation Testing:** [Pitest](http://pitest.org/)
-* **Continuous Integration:** [Travis CI](https://travis-ci.org/)
+* **Continuous Integration:**
+    * [Travis CI](https://travis-ci.org/)
+    * [Scrutinizer CI](https://scrutinizer-ci.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Other External Libraries:** 
     * [AssertJ](http://joel-costigliola.github.io/assertj/)
