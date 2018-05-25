@@ -1,7 +1,3 @@
 # Automated Code Reviews for Java https://scrutinizer-ci.com/docs/guides/java/automated-code-reviews
 checks:
     java: true
-
-filter:
-    paths:
-        - src/main/java/
