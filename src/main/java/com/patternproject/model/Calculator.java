@@ -3,8 +3,9 @@ package com.patternproject.model;
 /**
  * @author Koliadin Nikita
  *
- * This interface describes the methods that a calculatorEngine have to perform
+ * This functional interface describes the methods that a calculatorEngine have to perform
  */
+@FunctionalInterface
 public interface Calculator {
 
     /**
