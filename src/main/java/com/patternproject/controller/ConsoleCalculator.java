@@ -36,10 +36,10 @@ public class ConsoleCalculator implements CalculatorController {
      */
     @Override
     public void startDefaultCalculate() {
-        try (Reader reader = new InputStreamReader(System.in)) {
+        try (Reader reader = new InputStreamReader(System.in, "UTF-8")) {
             calculateToConsoleInOut(reader);
-        } catch (IOException ignore) {
-           /* Never happen */
+        } catch (IOException e) {
+           e.printStackTrace();
         }
     }
 
