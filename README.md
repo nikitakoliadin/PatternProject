@@ -6,7 +6,7 @@ This project is a pattern project. You can use it as a template to start. For an
 |:--------------:|:-----:|
 | Travis CI      | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
 | Codecov        | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
-| Scrutinizer CI | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/?branch=master) |
+| Scrutinizer CI | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/?branch=master) [![Join the chat at https://gitter.im/qThegamEp/PatternProject](https://badges.gitter.im/qThegamEp/PatternProject.svg)](https://gitter.im/qThegamEp/PatternProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
 
 ## Import Information
 If you want to use this project:
