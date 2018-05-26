@@ -26,9 +26,9 @@ If you want to use this project:
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
-* **Code Style** [Codacy](https://www.codacy.com/)
+* **Code Style:** [Codacy](https://www.codacy.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
-* **Chat** [Gitter](https://gitter.im/)
+* **Chat:** [Gitter](https://gitter.im/)
 * **Other External Libraries:** 
     * [AssertJ](http://joel-costigliola.github.io/assertj/)
     * [Mockito](http://site.mockito.org/)
