@@ -7,6 +7,7 @@ This project is a pattern project. You can use it as a template to start. For an
 | Travis CI      | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
 | Codecov        | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
 | Scrutinizer CI | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/?branch=master) |
+| Codacy         | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/00445736de354a39aa7fc598766fe5f1)](https://www.codacy.com/app/qThegamEp/PatternProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=qThegamEp/PatternProject&amp;utm_campaign=Badge_Grade) |
 | Gitter         | [![Gitter](https://badges.gitter.im/qThegamEp/PatternProject.svg)](https://gitter.im/qThegamEp/PatternProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) |
 
 ## Import Information
