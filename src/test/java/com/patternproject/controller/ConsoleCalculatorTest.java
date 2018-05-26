@@ -30,6 +30,7 @@ public class ConsoleCalculatorTest {
     @Test
     public void shouldCreateObject() {
         assertThat(calculator).isNotNull().isInstanceOf(ConsoleCalculator.class);
+        assertThat(calculatorEmptyEngine).isNotNull().isInstanceOf(ConsoleCalculator.class);
     }
 
     @Test
