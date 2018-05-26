@@ -2,6 +2,8 @@ package com.patternproject.controller;
 
 import com.patternproject.model.Calculator;
 
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,16 +20,11 @@ import java.util.stream.Stream;
  * This class is decorator of Calculator that has input and output to console
  * which can be setted
  */
+@NoArgsConstructor
+@AllArgsConstructor
 public class ConsoleCalculator implements CalculatorController {
 
     @Getter @Setter private Calculator calculatorEngine;
-
-    public ConsoleCalculator() {
-    }
-
-    public ConsoleCalculator(Calculator calculatorEngine) {
-        this.calculatorEngine = calculatorEngine;
-    }
 
     /**
      * This method implements the beginning of work with the calculator.
