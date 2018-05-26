@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.val;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class ConsoleCalculator implements CalculatorController {
      */
     @Override
     public void startDefaultCalculate() {
-        try (Reader reader = new InputStreamReader(System.in, "UTF-8")) {
+        try (val reader = new InputStreamReader(System.in, "UTF-8")) {
             calculateToConsoleInOut(reader);
         } catch (IOException e) {
            e.printStackTrace();
