@@ -30,6 +30,9 @@
         <!-- Pitest plugin -->
         <pitest.version>1.4.0</pitest.version>
 
+        <!-- Versions plugin -->
+        <versions.version>2.5</versions.version>
+
         <!-- JetBrains -->
         <jetbrains.version>16.0.2</jetbrains.version>
 
@@ -125,6 +128,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Versions plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.version}</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
             </plugin>
         </plugins>
     </build>
