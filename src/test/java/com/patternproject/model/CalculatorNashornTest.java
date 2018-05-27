@@ -63,37 +63,23 @@ public class CalculatorNashornTest {
     }
 
     @Test
-    public void shouldPositiveInfinityWhenPositiveNumberDivideByZero() {
+    public void shouldReturnPositiveInfinityWhenPositiveNumberDivideByZero() {
         assertThat(calculator.calculate("15/0*1+5")).isEqualTo(Double.POSITIVE_INFINITY);
     }
 
     @Test
-    public void shouldNegativeInfinityWhenNegativeNumberDivideByZero() {
+    public void shouldReturnNegativeInfinityWhenNegativeNumberDivideByZero() {
         assertThat(calculator.calculate("-15/0*1+5")).isEqualTo(Double.NEGATIVE_INFINITY);
     }
 
     @Test
     public void shouldCalculateBigExpression() {
         String expression = "";
-        for (int i = 0; i < 10; i++) {
-            expression += "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))" +
-                    "+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))";
+        for (int i = 0; i < 100; i++) {
+            expression += "+(sin(1)*sin(1)+cos(1)*cos(1))+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))";
         }
 
-        assertThat(calculator.calculate(expression)).isEqualTo(200);
+        assertThat(calculator.calculate(expression)).isEqualTo(300);
     }
 
     @Test
