@@ -29,13 +29,16 @@ public class ConsoleCalculatorTest {
 
     @Test
     public void shouldCreateObject() {
-        assertThat(calculator).isNotNull().isInstanceOf(ConsoleCalculator.class);
-        assertThat(calculatorEmptyEngine).isNotNull().isInstanceOf(ConsoleCalculator.class);
+        assertThat(calculator).isNotNull();
+        assertThat(calculatorEmptyEngine).isNotNull();
+        assertThat(calculatorMock).isNotNull();
     }
 
     @Test
-    public void shouldImplementsCalculatorController() {
+    public void shouldImplements() {
         assertThat(calculator).isInstanceOf(CalculatorController.class);
+        assertThat(calculatorEmptyEngine).isInstanceOf(CalculatorController.class);
+        assertThat(calculatorMock).isInstanceOf(Calculator.class);
     }
 
     @Test
