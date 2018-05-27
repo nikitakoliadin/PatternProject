@@ -19,7 +19,12 @@ public class CalculatorNashornTest {
 
     @Test
     public void shouldCreateObject() {
-        assertThat(calculator).isNotNull().isInstanceOf(Calculator.class);
+        assertThat(calculator).isNotNull();
+    }
+
+    @Test
+    public void shouldImplements() {
+        assertThat(calculator).isInstanceOf(Calculator.class);
     }
 
     @Test
@@ -58,6 +63,16 @@ public class CalculatorNashornTest {
     }
 
     @Test
+    public void shouldPositiveInfinityWhenPositiveNumberDivideByZero() {
+        assertThat(calculator.calculate("15/0*1+5")).isEqualTo(Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    public void shouldNegativeInfinityWhenNegativeNumberDivideByZero() {
+        assertThat(calculator.calculate("-15/0*1+5")).isEqualTo(Double.NEGATIVE_INFINITY);
+    }
+
+    @Test
     public void shouldCalculateBigExpression() {
         String expression = "";
         for (int i = 0; i < 10; i++) {
@@ -84,11 +99,6 @@ public class CalculatorNashornTest {
     @Test
     public void shouldNotCalculateNegativeSqrt() {
         assertThat(calculator.calculate("sqrt(-4)")).isNaN();
-    }
-
-    @Test
-    public void shouldNotDivideByZero() {
-        assertThat(calculator.calculate("15/0*1+5")).isEqualTo(Double.POSITIVE_INFINITY);
     }
 
     @Test
