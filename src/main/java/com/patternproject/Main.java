@@ -10,8 +10,8 @@ import lombok.val;
  */
 public class Main {
     public static void main(String[] args) {
-        val calculatorNashorn = new CalculatorNashorn(); // Model
-        val consoleCalculator = new ConsoleCalculator(); 
+        val calculatorNashorn = new CalculatorNashorn();
+        val consoleCalculator = new ConsoleCalculator();
 
         consoleCalculator.setCalculatorEngine(calculatorNashorn);
 
