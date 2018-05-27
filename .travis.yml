@@ -1,17 +1,17 @@
-# Travis CI Config https://docs.travis-ci.com/user/languages/java/
+# Travis CI Config - https://docs.travis-ci.com/user/languages/java/
 language: java
 jdk: oraclejdk9
 
-# Improve Build Speed https://dzone.com/articles/travis-ci-tutorial-java-projects
+# Improve Build Speed - https://dzone.com/articles/travis-ci-tutorial-java-projects
 cache:
   directories:
   - $HOME/.m2
 
-# Codecov https://github.com/codecov/example-java
+# Codecov - https://github.com/codecov/example-java
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-# Notifications https://docs.travis-ci.com/user/notifications/
+# Notifications - https://docs.travis-ci.com/user/notifications/
 notifications:
   email:
     recipients:
