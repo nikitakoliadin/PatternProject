@@ -5,7 +5,7 @@ jdk: oraclejdk9
 # Improve Build Speed https://dzone.com/articles/travis-ci-tutorial-java-projects
 cache:
   directories:
-  - $HOME/.m2
+    - $HOME/.m2
 
 # Codecov https://github.com/codecov/example-java
 after_success:
@@ -16,5 +16,5 @@ notifications:
   email:
     recipients:
       - qThegamEp@gmail.com
-    on_success: always # default: change
-    on_failure: always # default: always
+        on_success: always # default: change
+        on_failure: always # default: always
