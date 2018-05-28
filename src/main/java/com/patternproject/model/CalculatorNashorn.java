@@ -1,6 +1,7 @@
 package com.patternproject.model;
 
 import com.patternproject.exceptions.InvalidInputException;
+import com.patternproject.util.MathFunctionsUtil;
 
 import lombok.val;
 
@@ -34,7 +35,7 @@ public class CalculatorNashorn implements Calculator {
     }
 
     private static void defineMathFunctions(ScriptEngine scriptEngine) throws ScriptException {
-        for (val function : new String[] {"sin", "cos", "sqrt", "tan"}) {
+        for (val function : MathFunctionsUtil.MATH_FUNCTIONS) {
             scriptEngine.eval("function " + function + "(x) { return Java.type('java.lang.Math')." + function + "(x); }");
         }
     }
