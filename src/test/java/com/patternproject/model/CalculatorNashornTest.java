@@ -1,7 +1,11 @@
 package com.patternproject.model;
 
+import com.patternproject.exceptions.InvalidInputException;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.script.ScriptException;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -93,12 +97,16 @@ public class CalculatorNashornTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenExpressionIsIncorrect() {
-        assertThatIllegalArgumentException().isThrownBy(() -> calculator.calculate("end"));
+    public void shouldThrowInvalidInputExceptionWhenExpressionIsIncorrect() {
+        assertThatExceptionOfType(InvalidInputException.class).isThrownBy(
+                () -> calculator.calculate("exit")
+        ).withMessage("Failed to evaluate expression").withCauseInstanceOf(ClassCastException.class);
     }
 
     @Test
-    public void shouldThrowArgumentExceptionWhenCalculateDoubleMinus() {
-        assertThatIllegalArgumentException().isThrownBy(() -> calculator.calculate("1--1"));
+    public void shouldThrowInvalidInputExceptionWhenCalculateDoubleMinus() {
+        assertThatExceptionOfType(InvalidInputException.class).isThrownBy(
+                () -> calculator.calculate("1--1")
+        ).withMessage("Failed to evaluate expression").withCauseInstanceOf(ScriptException.class);
     }
 }
