@@ -117,7 +117,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <threads>2</threads>
-                    <timeoutConstant>20000</timeoutConstant>
+                    <timeoutConstant>60000</timeoutConstant>
                 </configuration>
                 <executions>
                     <execution>
