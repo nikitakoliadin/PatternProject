@@ -87,6 +87,40 @@ public class CalculatorNashornTest {
     }
 
     @Test
+    public void shouldCalculateEachFunctionCorrectly() {
+        assertThat(calculator.calculate("abs(-15.5)")).isEqualTo(15.5);
+        assertThat(calculator.calculate("acos(1)")).isEqualTo(0);
+        assertThat(calculator.calculate("asin(0)")).isEqualTo(0);
+        assertThat(calculator.calculate("atan(0)")).isEqualTo(0);
+        assertThat(calculator.calculate("cbrt(-8)")).isEqualTo(-2);
+        assertThat(calculator.calculate("ceil(-15.9)")).isEqualTo(-15);
+        assertThat(calculator.calculate("cos(1)")).isCloseTo(0.540302305, offset(1e-9));
+        assertThat(calculator.calculate("cosh(1)")).isCloseTo(1.543080634, offset(1e-9));
+        assertThat(calculator.calculate("exp(1)")).isCloseTo(2.718281828, offset(1e-9));
+        assertThat(calculator.calculate("expm1(1)")).isCloseTo(1.718281828, offset(1e-9));
+        assertThat(calculator.calculate("floor(1.9)")).isEqualTo(1);
+        assertThat(calculator.calculate("getExponent(22)")).isEqualTo(4);
+        assertThat(calculator.calculate("log(25)")).isCloseTo(3.218875824, offset(1e-9));
+        assertThat(calculator.calculate("log10(100)")).isEqualTo(2);
+        assertThat(calculator.calculate("log1p(25)")).isCloseTo(3.258096538, offset(1e-9));
+        assertThat(calculator.calculate("nextDown(1)")).isCloseTo(0.999999940, offset(1e-9));
+        assertThat(calculator.calculate("nextUp(1)")).isCloseTo(1.000000119, offset(1e-9));
+        assertThat(calculator.calculate("rint(15.49)")).isEqualTo(15);
+        assertThat(calculator.calculate("rint(15.5)")).isEqualTo(16);
+        assertThat(calculator.calculate("round(-16.5)")).isEqualTo(-16);
+        assertThat(calculator.calculate("round(16.5)")).isEqualTo(17);
+        assertThat(calculator.calculate("signum(15)")).isEqualTo(1);
+        assertThat(calculator.calculate("sin(1)")).isCloseTo(0.841470984, offset(1e-9));
+        assertThat(calculator.calculate("sinh(1)")).isCloseTo(1.175201193, offset(1e-9));
+        assertThat(calculator.calculate("sqrt(4)")).isEqualTo(2);
+        assertThat(calculator.calculate("tan(1)")).isCloseTo(1.557407724, offset(1e-9));
+        assertThat(calculator.calculate("tanh(1)")).isCloseTo(0.761594155, offset(1e-9));
+        assertThat(calculator.calculate("toDegrees(1)")).isCloseTo(57.295779513, offset(1e-9));
+        assertThat(calculator.calculate("toRadians(100)")).isCloseTo(1.745329251, offset(1e-9));
+        assertThat(calculator.calculate("ulp(100)")).isCloseTo(0.000007629, offset(1e-9));
+    }
+
+    @Test
     public void shouldNotCalculateNegativeSqrt() {
         assertThat(calculator.calculate("sqrt(-4)")).isNaN();
     }
