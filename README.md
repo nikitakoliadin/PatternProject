@@ -29,13 +29,16 @@ If you want to use this project:
 * **Code Style:** [Codacy](https://www.codacy.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Chat:** [Gitter](https://gitter.im/)
-* **Other External Libraries:** 
-    * [AssertJ](http://joel-costigliola.github.io/assertj/)
-    * [Mockito](http://site.mockito.org/)
-	* [Lombok](https://projectlombok.org/)
+* **Other External Libraries:**
 	* [JetBrains annotations](https://blog.jetbrains.com/dotnet/2015/08/12/how-to-use-jetbrains-annotations-to-improve-resharper-inspections/)
+	* [Lombok](https://projectlombok.org/)
+	* [AssertJ](http://joel-costigliola.github.io/assertj/)
+    * [Mockito](http://site.mockito.org/)
+* **Other Plugins:**
+    * [JaCoCo Plugin](http://www.baeldung.com/jacoco)
+    * [Versions Maven Plugin](http://www.mojohaus.org/versions-maven-plugin/)
 
-## Contacts
+## Contact Information
 * **Author:** Koliadin Nikita
 * **Facebook:** [My Facebook](https://www.facebook.com/koliadin.nikita)
 * **Gmail:** qThegamEp@gmail.com
