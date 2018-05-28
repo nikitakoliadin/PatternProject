@@ -1,5 +1,7 @@
 package com.patternproject.model;
 
+import com.patternproject.exceptions.InvalidInputException;
+
 import lombok.val;
 
 import javax.script.ScriptEngine;
@@ -26,8 +28,8 @@ public class CalculatorNashorn implements Calculator {
         try {
             defineMathFunctions(scriptEngine);
             return ((Number) scriptEngine.eval(expression)).doubleValue();
-        } catch (ScriptException e) {
-            throw new IllegalArgumentException("Failed to evaluate expression", e);
+        } catch (ScriptException | ClassCastException e) {
+            throw new InvalidInputException("Failed to evaluate expression", e);
         }
     }
 
