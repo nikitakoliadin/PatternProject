@@ -1,16 +1,26 @@
 package com.patternproject.util;
 
+import com.patternproject.exceptions.UtilClassException;
+
+import org.jetbrains.annotations.Contract;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Koliadin Nikita
  */
-public class MathFunctionsUtil {
+public final class MathFunctionsUtil {
+
+    @Contract(" -> fail")
+    private MathFunctionsUtil() {
+        throw new UtilClassException("Can not create object of util class");
+    }
 
     /**
      * This constant contains a list of functions available for use in the calculator
      */
-    public static final ArrayList<String> MATH_FUNCTIONS = new ArrayList<>(){{
+    public static final List<String> MATH_FUNCTIONS = new ArrayList<>(){{
         add("abs");
         add("acos");
         add("asin");
