@@ -32,7 +32,7 @@ public class MathFunctionsUtilTest {
         assertThatExceptionOfType(InvocationTargetException.class).isThrownBy(() -> {
             val constructor = MathFunctionsUtil.class.getDeclaredConstructor();
             constructor.setAccessible(true);
-            val mathFunctionsUtil = constructor.newInstance();
+            constructor.newInstance();
         }).withCauseInstanceOf(UtilClassException.class);
     }
 }
