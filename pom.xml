@@ -18,20 +18,27 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Project setting -->
-        <project.name>PatternProject</project.name>
-        <project.mainClass>com.patternproject.Main</project.mainClass>
+        <project.finalName>PatternProject</project.finalName>
+        <project.mainClass>com.patternproject.Application</project.mainClass>
 
         <!-- Compiler plugin -->
         <compilerPlugin.version>3.7.0</compilerPlugin.version>
 
+        <!-- Assembly plugin -->
+        <assemblyPlugin.appendAssemblyId>false</assemblyPlugin.appendAssemblyId>
+
         <!-- JaCoCo plugin -->
-        <jacoco.version>0.8.1</jacoco.version>
+        <jacocoPlugin.version>0.8.1</jacocoPlugin.version>
 
         <!-- Pitest plugin -->
-        <pitest.version>1.4.0</pitest.version>
+        <pitestPlugin.version>1.4.0</pitestPlugin.version>
+        <pitestPlugin.verbose>true</pitestPlugin.verbose>
+        <pitestPlugin.threads>2</pitestPlugin.threads>
+        <pitestPlugin.timeoutConstant>60000</pitestPlugin.timeoutConstant>
 
         <!-- Versions plugin -->
-        <versions.version>2.5</versions.version>
+        <versionsPlugin.version>2.5</versionsPlugin.version>
+        <versionsPlugin.generateBackupPoms>false</versionsPlugin.generateBackupPoms>
 
         <!-- JetBrains -->
         <jetbrains.version>16.0.2</jetbrains.version>
@@ -66,7 +73,7 @@
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>${project.name}</finalName>
+                    <finalName>${project.finalName}</finalName>
                     <archive>
                         <manifest>
                             <mainClass>${project.mainClass}</mainClass>
@@ -75,7 +82,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <appendAssemblyId>false</appendAssemblyId>
+                    <appendAssemblyId>${assemblyPlugin.appendAssemblyId}</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>
@@ -92,7 +99,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
+                <version>${jacocoPlugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -113,11 +120,11 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>${pitest.version}</version>
+                <version>${pitestPlugin.version}</version>
                 <configuration>
-                    <verbose>true</verbose>
-                    <threads>2</threads>
-                    <timeoutConstant>60000</timeoutConstant>
+                    <verbose>${pitestPlugin.verbose}</verbose>
+                    <threads>${pitestPlugin.threads}</threads>
+                    <timeoutConstant>${pitestPlugin.timeoutConstant}</timeoutConstant>
                 </configuration>
                 <executions>
                     <execution>
@@ -134,9 +141,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>${versions.version}</version>
+                <version>${versionsPlugin.version}</version>
                 <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
+                    <generateBackupPoms>${versionsPlugin.generateBackupPoms}</generateBackupPoms>
                 </configuration>
             </plugin>
         </plugins>
