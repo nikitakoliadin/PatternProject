@@ -12,27 +12,27 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * @author Koliadin Nikita
  */
-public class MainTest {
+public class ApplicationTest {
 
-    private final InputStream consoleInputStream = System.in;
-    private final PrintStream consolePrintStream = System.out;
+    private static final InputStream CONSOLE_INPUT_STREAM = System.in;
+    private static final PrintStream CONSOLE_PRINT_STREAM = System.out;
 
-    private Main main;
+    private Application application;
 
     @Before
     public void setUp() {
-        main = new Main();
+        application = new Application();
     }
 
     @After
     public void tearDown() {
-        System.setIn(consoleInputStream);
-        System.setOut(consolePrintStream);
+        System.setIn(ApplicationTest.CONSOLE_INPUT_STREAM);
+        System.setOut(ApplicationTest.CONSOLE_PRINT_STREAM);
     }
 
     @Test
     public void shouldCreateObject() {
-        assertThat(main).isNotNull().isInstanceOf(Main.class);
+        assertThat(application).isNotNull().isInstanceOf(Application.class);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class MainTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        Main.main(null);
+        Application.main(null);
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator();
@@ -65,17 +65,17 @@ public class MainTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        Main.main(null);
+        Application.main(null);
 
         byteArrayInputStream = new ByteArrayInputStream(secondInput.getBytes());
         System.setIn(byteArrayInputStream);
 
-        Main.main(null);
+        Application.main(null);
 
         byteArrayInputStream = new ByteArrayInputStream(thirdInput.getBytes());
         System.setIn(byteArrayInputStream);
 
-        Main.main(null);
+        Application.main(null);
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator()
@@ -88,6 +88,6 @@ public class MainTest {
     @Test
     public void shouldThrowNullPointerException() {
         System.setIn(null);
-        assertThatThrownBy(() -> Main.main(null)).isInstanceOf(NullPointerException.class);
+        assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> Application.main(null));
     }
 }
