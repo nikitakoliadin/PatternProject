@@ -30,11 +30,14 @@ If you want to use this project:
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Chat:** [Gitter](https://gitter.im/)
 * **Other External Libraries:**
-	* [JetBrains annotations](https://blog.jetbrains.com/dotnet/2015/08/12/how-to-use-jetbrains-annotations-to-improve-resharper-inspections/)
+	* [JetBrains Annotations](https://blog.jetbrains.com/dotnet/2015/08/12/how-to-use-jetbrains-annotations-to-improve-resharper-inspections/)
 	* [Lombok](https://projectlombok.org/)
 	* [AssertJ](http://joel-costigliola.github.io/assertj/)
     * [Mockito](http://site.mockito.org/)
-* **Other Plugins:**
+* **Plugins:**
+    * [Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)
+    * [Assembly Plugin](http://maven.apache.org/plugins/maven-assembly-plugin/)
+    * [Pitest Plugin](http://pitest.org/quickstart/maven/)
     * [JaCoCo Plugin](http://www.baeldung.com/jacoco)
     * [Versions Maven Plugin](http://www.mojohaus.org/versions-maven-plugin/)
 
