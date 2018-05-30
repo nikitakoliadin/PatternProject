@@ -17,14 +17,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Project setting -->
-        <project.finalName>PatternProject</project.finalName>
-        <project.mainClass>com.patternproject.Application</project.mainClass>
-
         <!-- Compiler plugin -->
         <compilerPlugin.version>3.7.0</compilerPlugin.version>
 
         <!-- Assembly plugin -->
+        <assemblyPlugin.version>3.1.0</assemblyPlugin.version>
+        <assemblyPlugin.finalName>PatternProject</assemblyPlugin.finalName>
+        <assemblyPlugin.mainClass>com.patternproject.Application</assemblyPlugin.mainClass>
         <assemblyPlugin.appendAssemblyId>false</assemblyPlugin.appendAssemblyId>
 
         <!-- JaCoCo plugin -->
@@ -44,7 +43,7 @@
         <jetbrains.version>16.0.2</jetbrains.version>
 
         <!-- Lombok -->
-        <projectlombok.version>1.16.20</projectlombok.version>
+        <projectlombok.version>1.16.22</projectlombok.version>
 
         <!-- JUnit -->
         <junit.version>4.12</junit.version>
@@ -71,12 +70,14 @@
 
             <!-- Assembly plugin -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>${assemblyPlugin.version}</version>
                 <configuration>
-                    <finalName>${project.finalName}</finalName>
+                    <finalName>${assemblyPlugin.finalName}</finalName>
                     <archive>
                         <manifest>
-                            <mainClass>${project.mainClass}</mainClass>
+                            <mainClass>${assemblyPlugin.mainClass}</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
