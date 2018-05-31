@@ -1,6 +1,5 @@
 # Project Plan
 ## Project Structure
-
 * PatternProject
     * src
         * main
