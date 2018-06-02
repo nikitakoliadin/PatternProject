@@ -1,11 +1,13 @@
 package com.patternproject;
 
+import com.patternproject.util.TestUtil;
+
 import lombok.val;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,25 +16,24 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class ApplicationTest {
 
-    private static final InputStream CONSOLE_INPUT_STREAM = System.in;
-    private static final PrintStream CONSOLE_PRINT_STREAM = System.out;
-
     private Application application;
 
     @Before
     public void setUp() {
         application = new Application();
-    }
 
-    @After
-    public void tearDown() {
-        System.setIn(ApplicationTest.CONSOLE_INPUT_STREAM);
-        System.setOut(ApplicationTest.CONSOLE_PRINT_STREAM);
+        System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
+        System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
     }
 
     @Test
     public void shouldCreateObject() {
-        assertThat(application).isNotNull().isInstanceOf(Application.class);
+        assertThat(application).isNotNull();
+    }
+
+    @Test
+    public void shouldImplements() {
+        assertThat(application).isInstanceOf(Application.class);
     }
 
     @Test
@@ -55,27 +56,21 @@ public class ApplicationTest {
 
     @Test
     public void shouldCalculateALotOfExpression() {
-        val firstInput = "sin(1)*sin(1)+cos(1)*cos(1)";
-        val secondInput = "(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))";
-        val thirdInput = "tan(0)+sqrt(225)";
+        val inputs = new String[] {
+                "sin(1)*sin(1)+cos(1)*cos(1)",
+                "(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))",
+                "tan(0)+sqrt(225)"
+        };
 
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(firstInput.getBytes());
         val byteArrayOutputStream = new ByteArrayOutputStream();
 
-        System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        Application.main(null);
-
-        byteArrayInputStream = new ByteArrayInputStream(secondInput.getBytes());
-        System.setIn(byteArrayInputStream);
-
-        Application.main(null);
-
-        byteArrayInputStream = new ByteArrayInputStream(thirdInput.getBytes());
-        System.setIn(byteArrayInputStream);
-
-        Application.main(null);
+        Arrays.stream(inputs).forEach((input) -> {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+            System.setIn(byteArrayInputStream);
+            Application.main(null);
+        });
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator()
@@ -88,6 +83,8 @@ public class ApplicationTest {
     @Test
     public void shouldThrowNullPointerException() {
         System.setIn(null);
-        assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> Application.main(null));
+        assertThatNullPointerException().isThrownBy(
+                () -> Application.main(null)
+        );
     }
 }
