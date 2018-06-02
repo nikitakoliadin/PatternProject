@@ -1,6 +1,7 @@
 package com.patternproject.controller;
 
-import com.patternproject.model.Calculator;
+import com.patternproject.model.CalculatorModel;
+import com.patternproject.view.CalculatorView;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -17,15 +18,13 @@ import java.util.stream.Stream;
 
 /**
  * @author Koliadin Nikita
- *
- * This class is decorator of Calculator that has input and output to console
- * which can be setted
  */
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConsoleCalculator implements CalculatorController {
+public class CalculatorConsole implements CalculatorController {
 
-    @Getter @Setter private Calculator calculatorEngine;
+    @Getter @Setter private CalculatorModel calculatorModel;
+    @Getter @Setter private CalculatorView calculatorView;
 
     /**
      * This method implements the beginning of work with the calculator.
@@ -55,7 +54,7 @@ public class ConsoleCalculator implements CalculatorController {
         new BufferedReader(reader).lines()
                 .flatMap((s) -> Stream.of(s.split(";")))
                 .filter((s) -> !s.trim().isEmpty())
-                .mapToDouble(calculatorEngine::calculate)
+                .mapToDouble(calculatorModel::calculate)
                 .forEach(resultConsumer);
     }
 }
