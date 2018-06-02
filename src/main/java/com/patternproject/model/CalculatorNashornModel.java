@@ -12,7 +12,7 @@ import javax.script.ScriptException;
 /**
  * @author Koliadin Nikita
  *
- * This class implements the calculatorEngine using JavaScript engine - Nashorn
+ * This class implements the calculator using JavaScript engine - Nashorn
  */
 public class CalculatorNashornModel implements CalculatorModel {
 
