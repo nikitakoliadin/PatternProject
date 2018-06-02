@@ -12,13 +12,13 @@ import static org.assertj.core.api.Assertions.*;
 /**
  * @author Koliadin Nikita
  */
-public class CalculatorNashornTest {
+public class CalculatorNashornModelTest {
 
     private CalculatorModel calculatorModel;
 
     @Before
     public void setUp() {
-        calculatorModel = new CalculatorNashorn();
+        calculatorModel = new CalculatorNashornModel();
     }
 
     @Test
