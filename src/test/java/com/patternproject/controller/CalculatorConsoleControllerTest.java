@@ -18,17 +18,17 @@ import static org.mockito.Mockito.*;
 /**
  * @author Koliadin Nikita
  */
-public class CalculatorConsoleTest {
+public class CalculatorConsoleControllerTest {
 
     private CalculatorModel calculatorModelMock;
-    private CalculatorConsole calculatorController;
-    private CalculatorConsole calculatorControllerEmpty;
+    private CalculatorConsoleController calculatorController;
+    private CalculatorConsoleController calculatorControllerEmpty;
 
     @Before
     public void setUp()  {
         calculatorModelMock = mock(CalculatorModel.class);
-        calculatorController = new CalculatorConsole();
-        calculatorControllerEmpty = new CalculatorConsole();
+        calculatorController = new CalculatorConsoleController();
+        calculatorControllerEmpty = new CalculatorConsoleController();
 
         calculatorController.setCalculatorModel(calculatorModelMock);
 
@@ -46,7 +46,7 @@ public class CalculatorConsoleTest {
         assertThat(calculatorController).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
         assertThat(calculatorModelMock).isNotNull();
-        assertThat(new CalculatorConsole(null, null)).isNotNull();
+        assertThat(new CalculatorConsoleController(null, null)).isNotNull();
     }
 
     @Test
