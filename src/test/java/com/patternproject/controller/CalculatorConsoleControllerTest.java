@@ -1,8 +1,8 @@
 package com.patternproject.controller;
 
 import com.patternproject.model.CalculatorModel;
-import com.patternproject.view.CalculatorConsoleView;
 import com.patternproject.view.CalculatorView;
+import com.patternproject.view.CalculatorConsoleView;
 
 import com.patternproject.util.TestUtil;
 
@@ -143,7 +143,7 @@ public class CalculatorConsoleControllerTest {
     }
 
     @Test
-    public void shouldThrowNullPointerExceptionWhenCalculatorEngineIsNull() {
+    public void shouldThrowNullPointerExceptionWhenCalculatorModelOrViewIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerEmpty.calculateToConsoleInOut(new StringReader("15 + 5"))
         );
