@@ -6,7 +6,7 @@ package com.patternproject.model;
  * This functional interface describes the methods that a calculatorEngine have to perform
  */
 @FunctionalInterface
-public interface Calculator {
+public interface CalculatorModel {
 
     /**
      * This method implement the calculation of the expression
