@@ -2,8 +2,6 @@ package com.patternproject.controller;
 
 /**
  * @author Koliadin Nikita
- *
- * This functional interface describes the control of the calculatorEngine
  */
 @FunctionalInterface
 public interface CalculatorController {
