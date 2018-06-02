@@ -1,6 +1,8 @@
 package com.patternproject.controller;
 
 import com.patternproject.model.CalculatorModel;
+import com.patternproject.view.CalculatorConsoleView;
+import com.patternproject.view.CalculatorView;
 
 import com.patternproject.util.TestUtil;
 
@@ -44,6 +46,7 @@ public class CalculatorConsoleTest {
         assertThat(calculatorController).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
         assertThat(calculatorModelMock).isNotNull();
+        assertThat(new CalculatorConsole(null, null)).isNotNull();
     }
 
     @Test
@@ -54,10 +57,18 @@ public class CalculatorConsoleTest {
     }
 
     @Test
-    public void shouldSetAndGetCalculator() {
+    public void shouldGetAndSetModel() {
         calculatorControllerEmpty.setCalculatorModel(calculatorModelMock);
 
-        assertThat(calculatorControllerEmpty.getCalculatorModel()).isNotNull().isEqualTo(calculatorModelMock);
+        assertThat(calculatorControllerEmpty.getCalculatorModel()).isNotNull().isEqualTo(calculatorModelMock).isInstanceOf(CalculatorModel.class);
+    }
+
+    @Test
+    public void shouldGetAndSetView() {
+        val calculatorView = new CalculatorConsoleView();
+        calculatorControllerEmpty.setCalculatorView(calculatorView);
+
+        assertThat(calculatorControllerEmpty.getCalculatorView()).isNotNull().isEqualTo(calculatorView).isInstanceOf(CalculatorView.class);
     }
 
     @Test
