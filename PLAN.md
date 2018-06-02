@@ -7,30 +7,35 @@
                 * com
                     * patternproject
                         * controller
-                            * [x] CalculatorController.java
-                            * [x] ConsoleCalculator.java
+                            * [x] CalculatorConsoleController
+                            * [x] CalculatorController
                         * exception
-                            * [x] InvalidInputException.java
-                            * [x] UtilClassException.java
+                            * [x] InvalidInputException
+                            * [x] UtilClassException
                         * model
-                            * [x] Calculator.java
-                            * [x] CalculatorNashorn.java
+                            * [x] CalculatorModel
+                            * [x] CalculatorNashornModel
                         * util
-                            * [x] MathFunctionsUtil.java
-                    * [x] Application.java
+                            * [x] MathFunctionsUtil
+                        * view
+                            * [x] CalculatorConsoleView
+                            * [x] CalculatorView
+                    * [x] Application
             * resources
         * test
             * java
                 * com
                     * patternproject
                         * controller
-                            * [x] ConsoleCalculatorTest.java
+                            * [x] CalculatorConsoleControllerTest
                         * model
-                            * [x] CalculatorNashornTest.java
+                            * [x] CalculatorNashornModelTest
                         * util
-                            * [x] MathFunctionsUtilTest.java
-                            * [x] TestUtil.class
-                    * [x] ApplicationTest.java
+                            * [x] MathFunctionsUtilTest
+                            * [x] TestUtil
+                        * view
+                            * [x] CalculatorConsoleViewTest
+                    * [x] ApplicationTest
     * [x] .gitignove
     * [x] .scrutinizer.yml
     * [x] .travis.yml
