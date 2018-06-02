@@ -14,7 +14,7 @@ import javax.script.ScriptException;
  *
  * This class implements the calculatorEngine using JavaScript engine - Nashorn
  */
-public class CalculatorNashorn implements Calculator {
+public class CalculatorNashornModel implements CalculatorModel {
 
     /**
      * This method implements the calculatorEngine engine due to the Java Script
