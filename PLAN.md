@@ -7,8 +7,8 @@
                 * com
                     * patternproject
                         * controller
-                            * [ ] CalculatorController.java
-                            * [ ] ConsoleCalculator.java
+                            * [x] CalculatorController.java
+                            * [x] ConsoleCalculator.java
                         * exception
                             * [x] InvalidInputException.java
                             * [x] UtilClassException.java
@@ -17,19 +17,20 @@
                             * [x] CalculatorNashorn.java
                         * util
                             * [x] MathFunctionsUtil.java
-                    * [ ] Application.java
+                    * [x] Application.java
             * resources
         * test
             * java
                 * com
                     * patternproject
                         * controller
-                            * [ ] ConsoleCalculatorTest.java
+                            * [x] ConsoleCalculatorTest.java
                         * model
                             * [x] CalculatorNashornTest.java
                         * util
                             * [x] MathFunctionsUtilTest.java
-                    * [ ] ApplicationTest.java
+                            * [x] TestUtil.class
+                    * [x] ApplicationTest.java
     * [x] .gitignove
     * [x] .scrutinizer.yml
     * [x] .travis.yml
@@ -38,6 +39,9 @@
     * [x] README.md
 
 ## Fix In Future
-* Refract controller
-* CalculatorNashornTest.java - 1 message concat strings
+* Add view
 * Add Log
+
+## Bugs && Messages
+* ConsoleCalculator.java - 1 message public method
+* CalculatorNashornTest.java - 1 message concat strings
