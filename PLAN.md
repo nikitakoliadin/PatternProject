@@ -39,7 +39,7 @@
     * [x] README.md
 
 ## Fix In Future
-* Add view
+* Add JavaDoc
 * Add Log
 
 ## Bugs && Messages
