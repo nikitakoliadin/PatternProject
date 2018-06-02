@@ -21,7 +21,7 @@ import java.util.stream.Stream;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalculatorConsole implements CalculatorController {
+public class CalculatorConsoleController implements CalculatorController {
 
     @Getter @Setter private CalculatorModel calculatorModel;
     @Getter @Setter private CalculatorView calculatorView;
