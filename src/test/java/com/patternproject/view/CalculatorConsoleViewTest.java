@@ -41,6 +41,7 @@ public class CalculatorConsoleViewTest {
         assertThat(calculatorView).isNotNull();
         assertThat(calculatorViewEmpty).isNotNull();
         assertThat(calculatorControllerMock).isNotNull();
+        assertThat(new CalculatorConsoleView(null)).isNotNull();
     }
 
     @Test
