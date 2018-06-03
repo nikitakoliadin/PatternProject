@@ -7,8 +7,8 @@ package com.patternproject.controller;
 public interface CalculatorController {
 
     /**
-     * This method should be a default implementation of the start
-     * of the calculator
+     * This method should be a standard implementation of the controller
+     * that parses the incoming data and outputs the result.
      */
     void startDefaultCalculate();
 }
