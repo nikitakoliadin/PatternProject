@@ -12,7 +12,7 @@ import java.util.List;
 public final class MathFunctionsUtil {
 
     /**
-     * This constant contains a immutable list of functions available for use in the calculator
+     * This constant contains a immutable list of functions available for use in the calculator.
      */
     public static final List<String> MATH_FUNCTIONS = List.of(
             "abs", "acos", "asin", "atan", "cbrt", "ceil", "cos", "cosh", "exp", "expm1", "floor",
