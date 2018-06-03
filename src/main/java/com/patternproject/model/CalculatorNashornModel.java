@@ -12,16 +12,16 @@ import javax.script.ScriptException;
 /**
  * @author Koliadin Nikita
  *
- * This class implements the calculator using JavaScript engine - Nashorn
+ * This class implements the calculator using JavaScript engine - Nashorn.
  */
 public class CalculatorNashornModel implements CalculatorModel {
 
     /**
-     * This method implements the calculatorEngine engine due to the Java Script
-     * engine - Nashorn
+     * This method implements the calculator engine due to the Javascript
+     * engine - Nashorn.
      * @param expression is input parameter that can have math functions
-     *                   and  any kind of math operations
-     * @return result of calculation
+     *                   and  any kind of math operations.
+     * @return result of calculation.
      */
     @Override
     public double calculate(String expression) {
