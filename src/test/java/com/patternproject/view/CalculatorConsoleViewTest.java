@@ -41,7 +41,7 @@ public class CalculatorConsoleViewTest {
         assertThat(calculatorView).isNotNull();
         assertThat(calculatorViewEmpty).isNotNull();
         assertThat(calculatorControllerMock).isNotNull();
-        assertThat(new CalculatorConsoleView(null)).isNotNull();
+        assertThat(new CalculatorConsoleView(new CalculatorConsoleController())).isNotNull();
     }
 
     @Test
@@ -71,6 +71,7 @@ public class CalculatorConsoleViewTest {
     @Test
     public void shouldPrintWelcomeWhenCalculatorRun() {
         val byteArrayOutputStream = new ByteArrayOutputStream();
+
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         calculatorView.run();
@@ -80,6 +81,20 @@ public class CalculatorConsoleViewTest {
                 + "To exit print -> exit()" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenControllerParameterOfArgsConstructorIsNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> new CalculatorConsoleView(null)
+        ).withMessage("calculatorController");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSetCalculatorControllerToNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorViewEmpty.setCalculatorController(null)
+        ).withMessage("calculatorController");
     }
 
     @Test
