@@ -69,7 +69,7 @@ public class ApplicationTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         Arrays.stream(inputs).forEach((input) -> {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+            val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
             System.setIn(byteArrayInputStream);
             Application.main(null);
         });
@@ -89,8 +89,16 @@ public class ApplicationTest {
     }
 
     @Test
-    public void shouldThrowNullPointerException() {
+    public void shouldThrowNullPointerExceptionWhenSystemInIsNull() {
         System.setIn(null);
+        assertThatNullPointerException().isThrownBy(
+                () -> Application.main(null)
+        );
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSystemOutIsNull() {
+        System.setOut(null);
         assertThatNullPointerException().isThrownBy(
                 () -> Application.main(null)
         );
