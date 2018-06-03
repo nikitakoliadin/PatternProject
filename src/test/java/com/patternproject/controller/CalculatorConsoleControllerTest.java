@@ -1,6 +1,7 @@
 package com.patternproject.controller;
 
 import com.patternproject.model.CalculatorModel;
+import com.patternproject.model.CalculatorNashornModel;
 import com.patternproject.view.CalculatorView;
 import com.patternproject.view.CalculatorConsoleView;
 
@@ -25,7 +26,7 @@ public class CalculatorConsoleControllerTest {
     private CalculatorConsoleController calculatorControllerEmpty;
 
     @Before
-    public void setUp()  {
+    public void setUp() {
         calculatorModelMock = mock(CalculatorModel.class);
         calculatorController = new CalculatorConsoleController();
         calculatorControllerEmpty = new CalculatorConsoleController();
@@ -46,7 +47,7 @@ public class CalculatorConsoleControllerTest {
         assertThat(calculatorController).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
         assertThat(calculatorModelMock).isNotNull();
-        assertThat(new CalculatorConsoleController(null, null)).isNotNull();
+        assertThat(new CalculatorConsoleController(new CalculatorNashornModel(), new CalculatorConsoleView())).isNotNull();
     }
 
     @Test
@@ -66,6 +67,7 @@ public class CalculatorConsoleControllerTest {
     @Test
     public void shouldGetAndSetView() {
         val calculatorView = new CalculatorConsoleView();
+
         calculatorControllerEmpty.setCalculatorView(calculatorView);
 
         assertThat(calculatorControllerEmpty.getCalculatorView()).isNotNull().isEqualTo(calculatorView).isInstanceOf(CalculatorView.class);
@@ -143,7 +145,35 @@ public class CalculatorConsoleControllerTest {
     }
 
     @Test
-    public void shouldThrowNullPointerExceptionWhenCalculatorModelOrViewIsNull() {
+    public void shouldThrowNullPointerExceptionWhenModelParameterOfArgsConstructorIsNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> new CalculatorConsoleController(null, new CalculatorConsoleView())
+        ).withMessage("calculatorModel");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenViewParameterOfArgsConstructorIsNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> new CalculatorConsoleController(new CalculatorNashornModel(), null)
+        ).withMessage("calculatorView");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSetCalculatorModelToNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorControllerEmpty.setCalculatorModel(null)
+        ).withMessage("calculatorModel");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSetCalculatorViewToNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorControllerEmpty.setCalculatorView(null)
+        ).withMessage("calculatorView");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenCalculatorModelIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerEmpty.calculateToConsoleInOut(new StringReader("15 + 5"))
         );
@@ -161,6 +191,7 @@ public class CalculatorConsoleControllerTest {
     @Test
     public void shouldCloseInputStreamWhenThrowIllegalArgumentException() throws IOException {
         val input = "end";
+
         val byteArrayInputStream = spy(new ByteArrayInputStream(input.getBytes()));
 
         System.setIn(byteArrayInputStream);
