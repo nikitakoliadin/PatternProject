@@ -3,18 +3,14 @@ package com.patternproject.controller;
 import com.patternproject.model.CalculatorModel;
 import com.patternproject.view.CalculatorView;
 
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.val;
+import lombok.*;
 
+import java.io.Reader;
+import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.function.DoubleConsumer;
 import java.util.stream.Stream;
+import java.util.function.DoubleConsumer;
 
 /**
  * @author Koliadin Nikita
@@ -23,13 +19,15 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class CalculatorConsoleController implements CalculatorController {
 
-    @Getter @Setter private CalculatorModel calculatorModel;
-    @Getter @Setter private CalculatorView calculatorView;
+    @NonNull @Getter @Setter private CalculatorModel calculatorModel;
+    @NonNull @Getter @Setter private CalculatorView calculatorView;
 
     /**
      * This method implements the beginning of work with the calculator.
      * It does not have any input parameters. The output is carried out
-     * to the console, the reading is done from the console also
+     * to the console, the reading is done from the console also.
+     * If expression divided by ';' then each result out to the new line.
+     * Empty lines are not calculated.
      */
     @Override
     public void startDefaultCalculate() {
@@ -44,7 +42,7 @@ public class CalculatorConsoleController implements CalculatorController {
      * This method takes Reader parameter and after calculation of the expression
      * out the result to console in the new line. If expression divided by ';'
      * then each result out to the new line. Empty lines are not calculated
-     * @param reader information reading parameters
+     * @param reader information reading parameters.
      */
     public void calculateToConsoleInOut(Reader reader) {
         consoleCalculator(reader, System.out::println);
