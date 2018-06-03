@@ -44,7 +44,6 @@
     * [x] README.md
 
 ## Fix In Future
-* Add JavaDoc
 * Add Log
 
 ## Bugs && Messages
