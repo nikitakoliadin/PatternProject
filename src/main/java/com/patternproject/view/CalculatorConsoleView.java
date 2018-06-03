@@ -2,10 +2,7 @@ package com.patternproject.view;
 
 import com.patternproject.controller.CalculatorController;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @author Koliadin Nikita
@@ -14,10 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CalculatorConsoleView implements CalculatorView {
 
-    @Getter @Setter private CalculatorController calculatorController;
+    @NonNull @Getter @Setter private CalculatorController calculatorController;
 
     /**
-     * This method implements the start of the default calculator
+     * This method implements the start of the default calculator.
+     * Also the method must log data.
      */
     @Override
     public void run() {
