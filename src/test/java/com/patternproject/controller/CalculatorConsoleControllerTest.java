@@ -26,8 +26,7 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorConsoleControllerTest {
 
-    @Mock
-    private CalculatorModel calculatorModelMock;
+    @Mock private CalculatorModel calculatorModelMock;
     private CalculatorConsoleController calculatorController;
     private CalculatorConsoleController calculatorControllerEmpty;
 
