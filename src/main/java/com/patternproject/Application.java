@@ -17,7 +17,7 @@ public class Application {
 
         val calculatorModel = new CalculatorNashornModel();
         val calculatorController = new CalculatorConsoleController();
-        val calculatorView =  new CalculatorConsoleView();
+        val calculatorView = new CalculatorConsoleView();
 
         calculatorController.setCalculatorModel(calculatorModel);
         calculatorController.setCalculatorView(calculatorView);
