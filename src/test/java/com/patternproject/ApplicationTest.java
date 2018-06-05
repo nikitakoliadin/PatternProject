@@ -58,7 +58,7 @@ public class ApplicationTest {
 
     @Test
     public void shouldCalculateALotOfExpression() {
-        val inputs = new String[] {
+        val inputs = new String[]{
                 "sin(1)*sin(1)+cos(1)*cos(1)",
                 "(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))",
                 "tan(0)+sqrt(225)"
