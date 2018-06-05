@@ -10,6 +10,10 @@ import com.patternproject.util.TestUtil;
 import lombok.val;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.*;
 
@@ -19,15 +23,15 @@ import static org.mockito.Mockito.*;
 /**
  * @author Koliadin Nikita
  */
+@RunWith(MockitoJUnitRunner.class)
 public class CalculatorConsoleControllerTest {
 
-    private CalculatorModel calculatorModelMock;
+    @Mock private CalculatorModel calculatorModelMock;
     private CalculatorConsoleController calculatorController;
     private CalculatorConsoleController calculatorControllerEmpty;
 
     @Before
     public void setUp() {
-        calculatorModelMock = mock(CalculatorModel.class);
         calculatorController = new CalculatorConsoleController();
         calculatorControllerEmpty = new CalculatorConsoleController();
 
