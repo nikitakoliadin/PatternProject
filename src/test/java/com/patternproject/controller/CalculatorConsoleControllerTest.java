@@ -26,7 +26,8 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorConsoleControllerTest {
 
-    @Mock private CalculatorModel calculatorModelMock;
+    @Mock
+    private CalculatorModel calculatorModelMock;
     private CalculatorConsoleController calculatorController;
     private CalculatorConsoleController calculatorControllerEmpty;
 
@@ -93,7 +94,7 @@ public class CalculatorConsoleControllerTest {
         calculatorController.calculateToConsoleInOut(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
 
         val actual = byteArrayOutputStream.toString();
-        val expected =  "1.0" + System.lineSeparator()
+        val expected = "1.0" + System.lineSeparator()
                 + "18.0" + System.lineSeparator()
                 + "15.0" + System.lineSeparator()
                 + "0.0" + System.lineSeparator();
