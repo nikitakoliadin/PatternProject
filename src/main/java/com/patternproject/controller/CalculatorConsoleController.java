@@ -34,7 +34,7 @@ public class CalculatorConsoleController implements CalculatorController {
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
             calculateToConsoleInOut(reader);
         } catch (IOException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
