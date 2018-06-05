@@ -1,16 +1,16 @@
-# gitignore file
+# Gitignore file
 
-# package files
+# Package files
 *.jar
 *.war
 *.ear
 
-# folders
-.idea/*
-target/*
-out/*
-log/*
+# Folders
+.idea/
+target/
+out/
+log/
 
-# files
+# Files
 *.iml
 *.class
