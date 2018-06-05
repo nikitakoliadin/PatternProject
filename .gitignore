@@ -9,6 +9,7 @@
 .idea/*
 target/*
 out/*
+log/*
 
 # files
 *.iml
