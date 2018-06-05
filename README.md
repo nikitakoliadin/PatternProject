@@ -23,17 +23,24 @@ If you want to use this project:
 * **Build System:** [Maven](https://maven.apache.org/)
 * **Automated Testing:** [JUnit4](https://junit.org/junit4/)
 * **Mutation Testing:** [Pitest](http://pitest.org/)
+* **Log** [Logback](https://logback.qos.ch/)
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
 * **Code Style:** [Codacy](https://www.codacy.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Chat:** [Gitter](https://gitter.im/)
-* **Other External Libraries:**
-	* [JetBrains Annotations](https://blog.jetbrains.com/dotnet/2015/08/12/how-to-use-jetbrains-annotations-to-improve-resharper-inspections/)
-	* [Lombok](https://projectlombok.org/)
-	* [AssertJ](http://joel-costigliola.github.io/assertj/)
-    * [Mockito](http://site.mockito.org/)
+* **External Libraries:**
+	* [JetBrains Annotations](https://mvnrepository.com/artifact/org.jetbrains/annotations)
+	* [Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok)
+	* [JUnit4](https://mvnrepository.com/artifact/junit/junit)
+	* [AssertJ](https://mvnrepository.com/artifact/org.assertj/assertj-core)
+    * [Mockito](https://mvnrepository.com/artifact/org.mockito/mockito-core)
+    * [SLF4J API](https://mvnrepository.com/artifact/org.slf4j/slf4j-api)
+    * [JCL Over SLF4J](https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j)
+    * [JUL to SLF4J](https://mvnrepository.com/artifact/org.slf4j/jul-to-slf4j)
+    * [Logback](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic)
+
 * **Plugins:**
     * [Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)
     * [Assembly Plugin](http://maven.apache.org/plugins/maven-assembly-plugin/)
