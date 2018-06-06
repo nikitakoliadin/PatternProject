@@ -25,7 +25,8 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorConsoleViewTest {
 
-    @Mock private CalculatorController calculatorControllerMock;
+    @Mock
+    private CalculatorController calculatorControllerMock;
     private CalculatorConsoleView calculatorView;
     private CalculatorConsoleView calculatorViewEmpty;
 
