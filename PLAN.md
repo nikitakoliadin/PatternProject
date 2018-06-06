@@ -22,6 +22,7 @@
                             * [x] CalculatorView
                     * [x] Application
             * resources
+                * [x] logback.xml
         * test
             * java
                 * com
@@ -36,6 +37,8 @@
                         * view
                             * [x] CalculatorConsoleViewTest
                     * [x] ApplicationTest
+            * resources
+                * [x] logback-test.xml
     * [x] .gitignove
     * [x] .scrutinizer.yml
     * [x] .travis.yml
@@ -44,7 +47,8 @@
     * [x] README.md
 
 ## Fix In Future
-* Add Log
+* Add log to src
+* Add log to test
 
 ## Bugs && Messages
 * ConsoleCalculator.java - 1 message public method
