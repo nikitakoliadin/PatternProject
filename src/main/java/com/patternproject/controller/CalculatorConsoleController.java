@@ -19,8 +19,14 @@ import java.util.function.DoubleConsumer;
 @AllArgsConstructor
 public class CalculatorConsoleController implements CalculatorController {
 
-    @NonNull @Getter @Setter private CalculatorModel calculatorModel;
-    @NonNull @Getter @Setter private CalculatorView calculatorView;
+    @NonNull
+    @Getter
+    @Setter
+    private CalculatorModel calculatorModel;
+    @NonNull
+    @Getter
+    @Setter
+    private CalculatorView calculatorView;
 
     /**
      * This method implements the beginning of work with the calculator.
@@ -42,6 +48,7 @@ public class CalculatorConsoleController implements CalculatorController {
      * This method takes Reader parameter and after calculation of the expression
      * out the result to console in the new line. If expression divided by ';'
      * then each result out to the new line. Empty lines are not calculated
+     *
      * @param reader information reading parameters.
      */
     public void calculateToConsoleInOut(Reader reader) {
