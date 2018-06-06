@@ -27,7 +27,7 @@ If you want to use this project:
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
-* **Code Style:** [Codacy](https://www.codacy.com/)
+    * [Codacy](https://www.codacy.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Chat:** [Gitter](https://gitter.im/)
 * **External Libraries:**
@@ -40,7 +40,6 @@ If you want to use this project:
     * [JCL Over SLF4J](https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j)
     * [JUL to SLF4J](https://mvnrepository.com/artifact/org.slf4j/jul-to-slf4j)
     * [Logback](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic)
-
 * **Plugins:**
     * [Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)
     * [Assembly Plugin](http://maven.apache.org/plugins/maven-assembly-plugin/)
