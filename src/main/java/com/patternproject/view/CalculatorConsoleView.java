@@ -11,7 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 public class CalculatorConsoleView implements CalculatorView {
 
-    @NonNull @Getter @Setter private CalculatorController calculatorController;
+    @NonNull
+    @Getter
+    @Setter
+    private CalculatorController calculatorController;
 
     /**
      * This method implements the start of the default calculator.
