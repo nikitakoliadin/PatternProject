@@ -10,14 +10,7 @@
     <!-- Pattern name of logs files -->
     <property name="LOG_PATTERN_NAME" value="test.%d{yyyy-MM-dd}.%i.log" />
 
-    <!-- Logback log to file and to console -->
-    <!-- Console appender -->
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
+    <!-- Logback log to file -->
     <!-- File appender -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/${LOG_NAME}</file>
@@ -34,7 +27,6 @@
 
     <!-- Root logger -->
     <root level="info">
-        <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
 </configuration>
