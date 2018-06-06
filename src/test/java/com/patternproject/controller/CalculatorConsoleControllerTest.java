@@ -153,28 +153,28 @@ public class CalculatorConsoleControllerTest {
     public void shouldThrowNullPointerExceptionWhenModelParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> new CalculatorConsoleController(null, new CalculatorConsoleView())
-        ).withMessage("calculatorModel");
+        ).withMessage("calculatorModel is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenViewParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> new CalculatorConsoleController(new CalculatorNashornModel(), null)
-        ).withMessage("calculatorView");
+        ).withMessage("calculatorView is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenSetCalculatorModelToNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerEmpty.setCalculatorModel(null)
-        ).withMessage("calculatorModel");
+        ).withMessage("calculatorModel is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenSetCalculatorViewToNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerEmpty.setCalculatorView(null)
-        ).withMessage("calculatorView");
+        ).withMessage("calculatorView is marked @NonNull but is null");
     }
 
     @Test
