@@ -92,14 +92,14 @@ public class CalculatorConsoleViewTest {
     public void shouldThrowNullPointerExceptionWhenControllerParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> new CalculatorConsoleView(null)
-        ).withMessage("calculatorController");
+        ).withMessage("calculatorController is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenSetCalculatorControllerToNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorViewEmpty.setCalculatorController(null)
-        ).withMessage("calculatorController");
+        ).withMessage("calculatorController is marked @NonNull but is null");
     }
 
     @Test
