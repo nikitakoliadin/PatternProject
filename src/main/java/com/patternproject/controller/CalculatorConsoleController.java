@@ -39,13 +39,17 @@ public class CalculatorConsoleController implements CalculatorController {
      */
     @Override
     public void startDefaultCalculate() {
-        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+        log.info("Method [{}] was started successful",
+                new Object() {}.getClass().getEnclosingMethod().getName()
+        );
 
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
-            log.info("Reader [{}] was created successful with encoding [{}]", reader.getClass(), reader.getEncoding());
+            log.info("Reader [{}] was created successful with encoding [{}]",
+                    reader.getClass(),
+                    reader.getEncoding()
+            );
             calculateToConsoleInOut(reader);
         } catch (IOException e) {
-            log.error("IOException");
             e.printStackTrace();
         }
     }
@@ -58,13 +62,17 @@ public class CalculatorConsoleController implements CalculatorController {
      * @param reader information reading parameters.
      */
     public void calculateToConsoleInOut(Reader reader) {
-        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+        log.info("Method [{}] was started successful",
+                new Object() {}.getClass().getEnclosingMethod().getName()
+        );
 
         consoleCalculator(reader, System.out::println);
     }
 
     private void consoleCalculator(Reader reader, DoubleConsumer resultConsumer) {
-        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+        log.info("Method [{}] was started successful",
+                new Object() {}.getClass().getEnclosingMethod().getName()
+        );
 
         new BufferedReader(reader).lines()
                 .flatMap((s) -> Stream.of(s.split(";")))
