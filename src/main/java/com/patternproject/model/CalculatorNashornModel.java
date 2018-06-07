@@ -34,22 +34,18 @@ public class CalculatorNashornModel implements CalculatorModel {
         );
 
         val scriptEngine = new ScriptEngineManager().getEngineByName("nashorn");
-
         log.info("Script engine class [{}] was loaded successful", scriptEngine.getClass());
 
         try {
             defineMathFunctions(scriptEngine);
-
             log.info("Defined math functions successful");
 
             val result = ((Number) scriptEngine.eval(expression)).doubleValue();
-
             log.info("Result of the expression is [{}]", result);
 
             return result;
         } catch (ScriptException | ClassCastException e) {
             log.error("Failed to evaluate expression");
-
             throw new InvalidInputException("Failed to evaluate expression", e);
         }
     }
@@ -62,7 +58,6 @@ public class CalculatorNashornModel implements CalculatorModel {
         for (val function : MathFunctionsUtil.MATH_FUNCTIONS) {
             scriptEngine.eval("function " + function +
                     "(x) { return Java.type('java.lang.Math')." + function + "(x); }");
-
             log.info("Function [{}] was defined successful", function);
         }
     }
