@@ -23,7 +23,9 @@ If you want to use this project:
 * **Build System:** [Maven](https://maven.apache.org/)
 * **Automated Testing:** [JUnit4](https://junit.org/junit4/)
 * **Mutation Testing:** [Pitest](http://pitest.org/)
-* **Log** [Logback](https://logback.qos.ch/)
+* **Log**
+    * [SLF4J](https://www.slf4j.org/)
+    * [Logback](https://logback.qos.ch/)
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
