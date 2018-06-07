@@ -13,7 +13,13 @@ import lombok.val;
 @Slf4j
 public class Application {
     public static void main(String[] args) {
-        log.info("Preparing application to start...");
+        log.info(System.lineSeparator()
+                + "-------------------------------------------------------------------------"
+                + System.lineSeparator()
+                + "---------------------Preparing application to start!---------------------"
+                + System.lineSeparator()
+                + "-------------------------------------------------------------------------"
+        );
 
         val calculatorModel = new CalculatorNashornModel();
         val calculatorController = new CalculatorConsoleController();
