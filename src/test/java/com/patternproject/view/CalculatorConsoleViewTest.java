@@ -82,7 +82,7 @@ public class CalculatorConsoleViewTest {
         calculatorView.run();
 
         val actual = byteArrayOutputStream.toString();
-        val expected = "Hello! I'm you calculator this day!" + System.lineSeparator()
+        val expected = "Hello! I'm your calculator this day!" + System.lineSeparator()
                 + "To exit print -> exit()" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
