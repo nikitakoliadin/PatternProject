@@ -45,9 +45,8 @@ public class CalculatorNashornModel implements CalculatorModel {
 
             return result;
         } catch (ScriptException | ClassCastException e) {
-            log.error("Failed to evaluate expression, message [{}], cause [{}]",
+            log.error("Failed to evaluate expression, message [{}]",
                     e.getMessage(),
-                    e.getCause().getMessage(),
                     e
             );
             throw new InvalidInputException("Failed to evaluate expression", e);
