@@ -4,6 +4,7 @@ import com.patternproject.model.CalculatorModel;
 import com.patternproject.view.CalculatorView;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Reader;
 import java.io.InputStreamReader;
@@ -15,6 +16,7 @@ import java.util.function.DoubleConsumer;
 /**
  * @author Koliadin Nikita
  */
+@Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
 public class CalculatorConsoleController implements CalculatorController {
@@ -37,9 +39,15 @@ public class CalculatorConsoleController implements CalculatorController {
      */
     @Override
     public void startDefaultCalculate() {
+        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
+            log.info("Reader [{}] was created successful with encoding [{}]", reader.getClass(), reader.getEncoding());
+
             calculateToConsoleInOut(reader);
         } catch (IOException e) {
+            log.error("IOException");
+
             e.printStackTrace();
         }
     }
@@ -52,10 +60,14 @@ public class CalculatorConsoleController implements CalculatorController {
      * @param reader information reading parameters.
      */
     public void calculateToConsoleInOut(Reader reader) {
+        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+
         consoleCalculator(reader, System.out::println);
     }
 
     private void consoleCalculator(Reader reader, DoubleConsumer resultConsumer) {
+        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+
         new BufferedReader(reader).lines()
                 .flatMap((s) -> Stream.of(s.split(";")))
                 .filter((s) -> !s.trim().isEmpty())
