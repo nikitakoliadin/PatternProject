@@ -26,9 +26,9 @@ public class CalculatorConsoleView implements CalculatorView {
     public void run() {
         log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
 
-        System.out.println("Hello! I'm your calculator this day!");
-        System.out.println("To exit print -> exit()");
-
+        System.out.println("Hello! I'm your calculator this day!" + System.lineSeparator()
+                + "To exit print -> exit()"
+        );
         log.info("The greeting is displayed on the console successfully");
 
         calculatorController.startDefaultCalculate();
