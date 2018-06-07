@@ -25,7 +25,6 @@ public final class MathFunctionsUtil {
     @Contract(" -> fail")
     private MathFunctionsUtil() {
         log.error("Can not create object of util class");
-
         throw new UtilClassException("Can not create object of util class");
     }
 }
