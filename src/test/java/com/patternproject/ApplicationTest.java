@@ -49,7 +49,7 @@ public class ApplicationTest {
         Application.main(null);
 
         val actual = byteArrayOutputStream.toString();
-        val expected = "Hello! I'm you calculator this day!" + System.lineSeparator()
+        val expected = "Hello! I'm your calculator this day!" + System.lineSeparator()
                 + "To exit print -> exit()" + System.lineSeparator()
                 + "1.0" + System.lineSeparator();
 
@@ -75,13 +75,13 @@ public class ApplicationTest {
         });
 
         val actual = byteArrayOutputStream.toString();
-        val expected = "Hello! I'm you calculator this day!" + System.lineSeparator()
+        val expected = "Hello! I'm your calculator this day!" + System.lineSeparator()
                 + "To exit print -> exit()" + System.lineSeparator()
                 + "1.0" + System.lineSeparator()
-                + "Hello! I'm you calculator this day!" + System.lineSeparator()
+                + "Hello! I'm your calculator this day!" + System.lineSeparator()
                 + "To exit print -> exit()" + System.lineSeparator()
                 + "2.0" + System.lineSeparator()
-                + "Hello! I'm you calculator this day!" + System.lineSeparator()
+                + "Hello! I'm your calculator this day!" + System.lineSeparator()
                 + "To exit print -> exit()" + System.lineSeparator()
                 + "15.0" + System.lineSeparator();
 
