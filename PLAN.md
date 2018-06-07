@@ -47,7 +47,6 @@
     * [x] README.md
 
 ## Fix In Future
-* Add log to src
 * Add log to test
 
 ## Bugs && Messages
