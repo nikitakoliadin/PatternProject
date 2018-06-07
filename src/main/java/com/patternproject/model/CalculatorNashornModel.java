@@ -40,6 +40,8 @@ public class CalculatorNashornModel implements CalculatorModel {
         try {
             defineMathFunctions(scriptEngine);
 
+            log.info("Defined math functions successful");
+
             val result = ((Number) scriptEngine.eval(expression)).doubleValue();
 
             log.info("Result of the expression is [{}]", result);
@@ -63,7 +65,5 @@ public class CalculatorNashornModel implements CalculatorModel {
 
             log.info("Function [{}] was defined successful", function);
         }
-
-        log.info("Defined math functions successful");
     }
 }
