@@ -24,15 +24,15 @@ public class CalculatorConsoleView implements CalculatorView {
      */
     @Override
     public void run() {
-        log.info("Class: {}, Method: {} - was started successful!",
+        log.info("Class: {}, Method: {} - was started successful",
                 this.getClass(),
-                new Object(){}.getClass().getEnclosingMethod().getName()
+                new Object() {}.getClass().getEnclosingMethod().getName()
         );
 
         System.out.println("Hello! I'm your calculator this day!");
         System.out.println("To exit print -> exit()");
 
-        log.info("The greeting is displayed on the console successfully!");
+        log.info("The greeting is displayed on the console successfully");
 
         calculatorController.startDefaultCalculate();
     }
