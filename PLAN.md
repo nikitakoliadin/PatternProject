@@ -50,5 +50,7 @@
 * Add log to test
 
 ## Bugs && Messages
-* ConsoleCalculator.java - 1 message public method
-* CalculatorNashornTest.java - 1 message concat strings
+* CalculatorConsoleController - IOException mutation test
+* CalculatorConsoleController - log
+* CalculatorConsoleController.java - 1 message public method
+* CalculatorNashornModelTest.java - 1 message concat strings
