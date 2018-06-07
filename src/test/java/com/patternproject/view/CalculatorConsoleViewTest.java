@@ -62,7 +62,9 @@ public class CalculatorConsoleViewTest {
 
         calculatorViewEmpty.setCalculatorController(calculatorController);
 
-        assertThat(calculatorViewEmpty.getCalculatorController()).isNotNull().isEqualTo(calculatorController).isInstanceOf(CalculatorController.class);
+        assertThat(calculatorViewEmpty.getCalculatorController()).isNotNull()
+                .isEqualTo(calculatorController)
+                .isInstanceOf(CalculatorController.class);
     }
 
     @Test
