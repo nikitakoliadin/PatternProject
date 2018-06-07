@@ -20,7 +20,10 @@ public class Application {
                 + System.lineSeparator()
                 + "-------------------------------------------------------------------------"
         );
-        log.info("Method [{}] was started successful", new Object() {}.getClass().getEnclosingMethod().getName());
+
+        log.info("Method [{}] was started successful",
+                new Object() {}.getClass().getEnclosingMethod().getName()
+        );
 
         val calculatorModel = new CalculatorNashornModel();
         val calculatorController = new CalculatorConsoleController();
