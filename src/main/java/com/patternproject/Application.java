@@ -16,7 +16,7 @@ public class Application {
         log.info(System.lineSeparator()
                 + "-------------------------------------------------------------------------"
                 + System.lineSeparator()
-                + "---------------------Preparing application to start!---------------------"
+                + "----------------------Preparing application to start---------------------"
                 + System.lineSeparator()
                 + "-------------------------------------------------------------------------"
         );
@@ -29,7 +29,7 @@ public class Application {
         calculatorController.setCalculatorView(calculatorView);
         calculatorView.setCalculatorController(calculatorController);
 
-        log.info("Preparing was done successful!");
+        log.info("Preparing was done successful");
 
         calculatorView.run();
     }
