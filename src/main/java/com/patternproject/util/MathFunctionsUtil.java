@@ -2,6 +2,7 @@ package com.patternproject.util;
 
 import com.patternproject.exceptions.UtilClassException;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Contract;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * @author Koliadin Nikita
  */
+@Slf4j
 public final class MathFunctionsUtil {
 
     /**
@@ -22,6 +24,7 @@ public final class MathFunctionsUtil {
 
     @Contract(" -> fail")
     private MathFunctionsUtil() {
+        log.error("Class: {} - can not create object of util class", this.getClass());
         throw new UtilClassException("Can not create object of util class");
     }
 }
