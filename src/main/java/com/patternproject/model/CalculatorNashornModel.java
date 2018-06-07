@@ -58,8 +58,8 @@ public class CalculatorNashornModel implements CalculatorModel {
         );
 
         for (val function : MathFunctionsUtil.MATH_FUNCTIONS) {
-            scriptEngine.eval("function " + function + "(x) { return Java.type('java.lang.Math')."
-                    + function + "(x); }");
+            scriptEngine.eval("function " + function +
+                    "(x) { return Java.type('java.lang.Math')." + function + "(x); }");
 
             log.info("Function [{}] was defined successful", function);
         }
