@@ -43,11 +43,9 @@ public class CalculatorConsoleController implements CalculatorController {
 
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
             log.info("Reader [{}] was created successful with encoding [{}]", reader.getClass(), reader.getEncoding());
-
             calculateToConsoleInOut(reader);
         } catch (IOException e) {
             log.error("IOException");
-
             e.printStackTrace();
         }
     }
