@@ -2,13 +2,13 @@
 
 <configuration>
     <!-- Path to data logs -->
-    <property name="LOG_PATH" value="${user.dir}/log/application" />
+    <property name="LOG_PATH" value="${user.dir}/log/application"/>
 
     <!-- Name of logs files -->
-    <property name="LOG_NAME" value="application.log" />
+    <property name="LOG_NAME" value="application.log"/>
 
     <!-- Pattern name of logs files -->
-    <property name="LOG_PATTERN_NAME" value="application.%d{yyyy-MM-dd}.%i.log" />
+    <property name="LOG_PATTERN_NAME" value="application.%d{yyyy-MM-dd}.%i.log"/>
 
     <!-- Root logback log to file -->
     <!-- Rolling file appender -->
