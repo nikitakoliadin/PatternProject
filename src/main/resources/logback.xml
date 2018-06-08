@@ -10,9 +10,9 @@
     <!-- Pattern name of logs files -->
     <property name="LOG_PATTERN_NAME" value="application.%d{yyyy-MM-dd}.%i.log" />
 
-    <!-- Logback log to file -->
-    <!-- File appender -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!-- Root logback log to file -->
+    <!-- Rolling file appender -->
+    <appender name="ROOT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/${LOG_NAME}</file>
         <encoder>
             <charset>UTF-8</charset>
@@ -27,6 +27,6 @@
 
     <!-- Root logger -->
     <root level="info">
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="ROOT_FILE"/>
     </root>
 </configuration>
