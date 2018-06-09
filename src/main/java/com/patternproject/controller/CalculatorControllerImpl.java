@@ -5,7 +5,6 @@ import com.patternproject.view.CalculatorView;
 
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Reader;
 import java.io.InputStreamReader;
@@ -103,7 +102,7 @@ public class CalculatorControllerImpl implements CalculatorController {
         calculate(reader, resultConsumer);
     }
 
-    private void calculate(@NotNull Reader reader, @NotNull DoubleConsumer resultConsumer) {
+    private void calculate(@NonNull Reader reader, @NonNull DoubleConsumer resultConsumer) {
         log.info("Preparing calculator to work was done successful! Waiting for user input");
 
         new BufferedReader(reader).lines()
