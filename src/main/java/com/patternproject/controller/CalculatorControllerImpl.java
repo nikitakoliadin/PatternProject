@@ -79,7 +79,7 @@ public class CalculatorControllerImpl implements CalculatorController {
 
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
             log.info("Preparing input stream reader [{}] to set default input to the console for the " +
-                            "calculator with encoding [{}] was created successful",
+                            "calculator with encoding [{}] was done successful",
                     reader.getClass(),
                     reader.getEncoding()
             );
