@@ -28,24 +28,21 @@ public class CalculatorNashornModel implements CalculatorModel {
      */
     @Override
     public double calculate(String expression) {
-        log.info("Method [{}] was started successful with parameter [{}]",
-                new Object() {}.getClass().getEnclosingMethod().getName(),
-                expression
-        );
+        log.info("Preparing to calculate expression: [{}]", expression);
 
         val scriptEngine = new ScriptEngineManager().getEngineByName("nashorn");
-        log.info("Script engine class [{}] was loaded successful", scriptEngine.getClass());
+        log.info("Script engine: [{}] was loaded successful", scriptEngine.getClass());
 
         try {
             defineMathFunctions(scriptEngine);
             log.info("Defined math functions successful");
 
             val result = ((Number) scriptEngine.eval(expression)).doubleValue();
-            log.info("Result of the expression is [{}]", result);
+            log.info("Result of the expression: [{}]", result);
 
             return result;
         } catch (ScriptException | ClassCastException e) {
-            log.error("Failed to evaluate expression, message [{}]",
+            log.error("Failed to evaluate expression, message: [{}]",
                     e.getMessage(),
                     e
             );
@@ -54,14 +51,12 @@ public class CalculatorNashornModel implements CalculatorModel {
     }
 
     private void defineMathFunctions(ScriptEngine scriptEngine) throws ScriptException {
-        log.info("Method [{}] was started successful",
-                new Object() {}.getClass().getEnclosingMethod().getName()
-        );
+        log.info("Preparing to define math functions");
 
         for (val function : MathFunctionsUtil.MATH_FUNCTIONS) {
             scriptEngine.eval("function " + function +
                     "(x) { return Java.type('java.lang.Math')." + function + "(x); }");
-            log.info("Function [{}] was defined successful", function);
+            log.info("Function: [{}] was defined successful", function);
         }
     }
 }
