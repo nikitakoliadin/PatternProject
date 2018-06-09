@@ -7,9 +7,7 @@ package com.patternproject.view;
 public interface CalculatorView {
 
     /**
-     * This method should be a default implementation of the preparation
-     * and start of the console calculator.
-     * Any logging or processing of output must be encapsulated in the implementation.
+     * This method should be a default implementation of the preparation and start of the console calculator.
      */
-    void run();
+    void startConsoleCalculator();
 }
