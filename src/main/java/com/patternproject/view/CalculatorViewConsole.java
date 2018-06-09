@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalculatorConsoleView implements CalculatorView {
+public class CalculatorViewConsole implements CalculatorView {
 
     @NonNull
     @Getter
@@ -19,19 +19,22 @@ public class CalculatorConsoleView implements CalculatorView {
     private CalculatorController calculatorController;
 
     /**
-     * This method implements the start of the default calculator.
-     * Also the method must log data.
+     * This method implements the start of the default console calculator.
      */
     @Override
-    public void run() {
+    public void startConsoleCalculator() {
         log.info("Preparing to out greeting to the console");
 
+        printGreeting();
+        log.info("The greeting is displayed on the console successful");
+
+        calculatorController.startDefaultCalculate();
+    }
+    
+    private void printGreeting() {
         System.out.println("-> Hello!" + System.lineSeparator()
                 + "-> I'm your calculator today!" + System.lineSeparator()
                 + "-> To exit print: exit()"
         );
-        log.info("The greeting is displayed on the console successful");
-
-        calculatorController.startDefaultCalculate();
     }
 }
