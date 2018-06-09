@@ -13,17 +13,9 @@ import lombok.val;
 @Slf4j
 public class Application {
     public static void main(String[] args) {
-        log.info(System.lineSeparator()
-                + "-------------------------------------------------------------------------"
-                + System.lineSeparator()
-                + "----------------------Preparing application to start---------------------"
-                + System.lineSeparator()
-                + "-------------------------------------------------------------------------"
-        );
+        log.info(System.lineSeparator() + "--------------------------------Calculator-------------------------------");
 
-        log.info("Method [{}] was started successful",
-                new Object() {}.getClass().getEnclosingMethod().getName()
-        );
+        log.info("Application are preparing to start");
 
         val calculatorModel = new CalculatorNashornModel();
         val calculatorController = new CalculatorConsoleController();
@@ -33,7 +25,7 @@ public class Application {
         calculatorController.setCalculatorView(calculatorView);
         calculatorView.setCalculatorController(calculatorController);
 
-        log.info("Preparing was done successful");
+        log.info("Preparing of the application was done successful");
 
         calculatorView.run();
     }
