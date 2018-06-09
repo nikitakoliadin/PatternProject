@@ -16,7 +16,7 @@
         <file>${LOG_PATH}/${LOG_NAME}</file>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+            <pattern>%date %level [%thread] %logger{100}.%method.%line - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- This log file will be archived daily or the file size is larger than 10MB -->
