@@ -260,21 +260,17 @@ public class CalculatorControllerImplTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenReaderOfCalculatorIsNull() {
-        assertThatIllegalArgumentException().isThrownBy(
+    public void shouldThrowNullPointerExceptionWhenReaderOfCalculatorIsNull() {
+        assertThatNullPointerException().isThrownBy(
                 () -> calculatorController.calculateToConsoleFrom(null)
-        ).withMessage("Argument for @NotNull parameter 'reader' of " +
-                "com/patternproject/controller/CalculatorControllerImpl.calculate must not be null"
-        );
+        ).withMessage("reader is marked @NonNull but is null");
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenDoubleConsumerOfCalculatorIsNull() {
-        assertThatIllegalArgumentException().isThrownBy(
+    public void shouldThrowNullPointerExceptionWhenDoubleConsumerOfCalculatorIsNull() {
+        assertThatNullPointerException().isThrownBy(
                 () -> calculatorController.calculateFromConsoleTo(null)
-        ).withMessage("Argument for @NotNull parameter 'resultConsumer' of " +
-                "com/patternproject/controller/CalculatorControllerImpl.calculate must not be null"
-        );
+        ).withMessage("resultConsumer is marked @NonNull but is null");
     }
 
     @Test
