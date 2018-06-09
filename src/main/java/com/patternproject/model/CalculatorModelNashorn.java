@@ -16,7 +16,7 @@ import javax.script.ScriptException;
  * This class implements the calculator using JavaScript engine - Nashorn.
  */
 @Slf4j
-public class CalculatorNashornModel implements CalculatorModel {
+public class CalculatorModelNashorn implements CalculatorModel {
 
     /**
      * This method implements the calculator engine due to the Javascript
@@ -35,10 +35,13 @@ public class CalculatorNashornModel implements CalculatorModel {
 
         try {
             defineMathFunctions(scriptEngine);
-            log.info("Defined math functions successful");
+            log.info("Preparing to define math functions was successful");
 
             val result = ((Number) scriptEngine.eval(expression)).doubleValue();
-            log.info("Result of the expression: [{}]", result);
+            log.info("Preparing to calculate expression: [{}] was successful! Result of the expression: [{}]",
+                    expression,
+                    result
+            );
 
             return result;
         } catch (ScriptException | ClassCastException e) {
