@@ -7,19 +7,19 @@
                 * com
                     * patternproject
                         * controller
-                            * [x] CalculatorConsoleController
                             * [x] CalculatorController
+                            * [x] CalculatorControllerImpl
                         * exception
                             * [x] InvalidInputException
                             * [x] UtilClassException
                         * model
                             * [x] CalculatorModel
-                            * [x] CalculatorNashornModel
+                            * [x] CalculatorModelNashorn
                         * util
                             * [x] MathFunctionsUtil
                         * view
-                            * [x] CalculatorConsoleView
                             * [x] CalculatorView
+                            * [x] CalculatorViewConsole
                     * [x] Application
             * resources
                 * [x] logback.xml
@@ -28,14 +28,14 @@
                 * com
                     * patternproject
                         * controller
-                            * [x] CalculatorConsoleControllerTest
+                            * [x] CalculatorControllerImplTest
                         * model
-                            * [x] CalculatorNashornModelTest
+                            * [x] CalculatorModelNashornTest
                         * util
                             * [x] MathFunctionsUtilTest
                             * [x] TestUtil
                         * view
-                            * [x] CalculatorConsoleViewTest
+                            * [x] CalculatorViewConsoleTest
                     * [x] ApplicationTest
             * resources
                 * [x] logback-test.xml
@@ -47,10 +47,10 @@
     * [x] README.md
 
 ## Fix In Future
+* Add rules for test classes
 * Add log to test
 
 ## Bugs && Messages
-* CalculatorConsoleController - IOException mutation test
-* CalculatorConsoleController - log
-* CalculatorConsoleController.java - 1 message public method
-* CalculatorNashornModelTest.java - 1 message concat strings
+*Application - view mutation test
+* CalculatorControllerImpl - IOException mutation test
+* CalculatorModelNashornTest.java - 1 message concat strings
