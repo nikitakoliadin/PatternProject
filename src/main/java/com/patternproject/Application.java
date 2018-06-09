@@ -1,8 +1,8 @@
 package com.patternproject;
 
-import com.patternproject.model.CalculatorNashornModel;
-import com.patternproject.view.CalculatorConsoleView;
-import com.patternproject.controller.CalculatorConsoleController;
+import com.patternproject.model.CalculatorModelNashorn;
+import com.patternproject.controller.CalculatorControllerImpl;
+import com.patternproject.view.CalculatorViewConsole;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -17,9 +17,9 @@ public class Application {
 
         log.info("Application are preparing to start");
 
-        val calculatorModel = new CalculatorNashornModel();
-        val calculatorController = new CalculatorConsoleController();
-        val calculatorView = new CalculatorConsoleView();
+        val calculatorModel = new CalculatorModelNashorn();
+        val calculatorController = new CalculatorControllerImpl();
+        val calculatorView = new CalculatorViewConsole();
 
         calculatorController.setCalculatorModel(calculatorModel);
         calculatorController.setCalculatorView(calculatorView);
@@ -27,6 +27,6 @@ public class Application {
 
         log.info("Preparing of the application was done successful");
 
-        calculatorView.run();
+        calculatorView.startConsoleCalculator();
     }
 }
