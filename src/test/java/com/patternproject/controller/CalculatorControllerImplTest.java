@@ -24,19 +24,23 @@ import static org.mockito.Mockito.*;
  * @author Koliadin Nikita
  */
 @RunWith(MockitoJUnitRunner.class)
-public class CalculatorConsoleControllerTest {
+public class CalculatorControllerImplTest {
 
     @Mock
     private CalculatorModel calculatorModelMock;
-    private CalculatorConsoleController calculatorController;
-    private CalculatorConsoleController calculatorControllerEmpty;
+    @Mock
+    private CalculatorView calculatorViewMock;
+
+    private CalculatorControllerImpl calculatorController;
+    private CalculatorControllerImpl calculatorControllerEmpty;
 
     @Before
     public void setUp() {
-        calculatorController = new CalculatorConsoleController();
-        calculatorControllerEmpty = new CalculatorConsoleController();
+        calculatorController = new CalculatorControllerImpl();
+        calculatorControllerEmpty = new CalculatorControllerImpl();
 
         calculatorController.setCalculatorModel(calculatorModelMock);
+        calculatorController.setCalculatorView(calculatorViewMock);
 
         System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
         System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
@@ -52,7 +56,7 @@ public class CalculatorConsoleControllerTest {
         assertThat(calculatorController).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
         assertThat(calculatorModelMock).isNotNull();
-        assertThat(new CalculatorConsoleController(new CalculatorNashornModel(), new CalculatorConsoleView())).isNotNull();
+        assertThat(new CalculatorControllerImpl(new CalculatorNashornModel(), new CalculatorConsoleView())).isNotNull();
     }
 
     @Test
@@ -71,16 +75,14 @@ public class CalculatorConsoleControllerTest {
 
     @Test
     public void shouldGetAndSetView() {
-        val calculatorView = new CalculatorConsoleView();
+        calculatorControllerEmpty.setCalculatorView(calculatorViewMock);
 
-        calculatorControllerEmpty.setCalculatorView(calculatorView);
-
-        assertThat(calculatorControllerEmpty.getCalculatorView()).isNotNull().isEqualTo(calculatorView).isInstanceOf(CalculatorView.class);
+        assertThat(calculatorControllerEmpty.getCalculatorView()).isNotNull().isEqualTo(calculatorViewMock).isInstanceOf(CalculatorView.class);
     }
 
     @Test
     public void shouldSkipEmptyExpression() {
-        calculatorController.calculateToConsoleInOut(new StringReader(";  ; ;;;  \b  ; \n;\n\n \t\t; \t; \t \t\r \t;  "));
+        calculatorController.calculateToConsoleFrom(new StringReader(";  ; ;;;  \b  ; \n;\n\n \t\t; \t; \t \t\r \t;  "));
 
         verifyZeroInteractions(calculatorModelMock);
     }
@@ -91,7 +93,7 @@ public class CalculatorConsoleControllerTest {
 
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.calculateToConsoleInOut(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
+        calculatorController.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator()
@@ -106,7 +108,7 @@ public class CalculatorConsoleControllerTest {
     public void shouldPassSeparatedExpressions() {
         System.out.println("====[TEST] shouldPassSeparatedExpressions [TEST]====");
 
-        calculatorController.calculateToConsoleInOut(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
+        calculatorController.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
 
         verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
         verify(calculatorModelMock).calculate("15+3");
@@ -116,7 +118,20 @@ public class CalculatorConsoleControllerTest {
     }
 
     @Test
-    public void shouldWorkDefaultStartCalculate() {
+    public void shouldIdentifySpace() {
+        System.out.println("====[TEST] shouldIdentifySpace [TEST]====");
+
+        when((calculatorModelMock).calculate("  tan(0)")).thenReturn(0d);
+
+        calculatorController.calculateToConsoleFrom(new StringReader("sqrt(225);  tan(0)"));
+
+        verify(calculatorModelMock).calculate("sqrt(225)");
+        verify(calculatorModelMock).calculate("  tan(0)");
+        verifyNoMoreInteractions(calculatorModelMock);
+    }
+
+    @Test
+    public void shouldWorkMethodStartDefaultCalculate() {
         val input = "sin(1)*sin(1)+cos(1)*cos(1)";
 
         val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
@@ -137,30 +152,90 @@ public class CalculatorConsoleControllerTest {
     }
 
     @Test
-    public void shouldIdentifySpace() {
-        System.out.println("====[TEST] shouldIdentifySpace [TEST]====");
+    public void shouldWorkMethodCalculateToConsoleFrom() throws UnsupportedEncodingException {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
 
-        when((calculatorModelMock).calculate("  tan(0)")).thenReturn(0d);
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+        val byteArrayOutputStream = new ByteArrayOutputStream();
 
-        calculatorController.calculateToConsoleInOut(new StringReader("sqrt(225);  tan(0)"));
+        System.setIn(byteArrayInputStream);
+        System.setOut(new PrintStream(byteArrayOutputStream));
 
-        verify(calculatorModelMock).calculate("sqrt(225)");
-        verify(calculatorModelMock).calculate("  tan(0)");
+        calculatorController.calculateToConsoleFrom(new InputStreamReader(System.in, "UTF-8"));
+
+        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
         verifyNoMoreInteractions(calculatorModelMock);
+
+        val actual = byteArrayOutputStream.toString();
+        val expected = "1.0" + System.lineSeparator();
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldWorkMethodCalculateFromConsoleTo() {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+        val byteArrayOutputStream = new ByteArrayOutputStream();
+
+        System.setIn(byteArrayInputStream);
+        System.setOut(new PrintStream(byteArrayOutputStream));
+
+        calculatorController.calculateFromConsoleTo(System.out::println);
+
+        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
+        verifyNoMoreInteractions(calculatorModelMock);
+
+        val actual = byteArrayOutputStream.toString();
+        val expected = "1.0" + System.lineSeparator();
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldWorkMethodCalculateFromTo() throws UnsupportedEncodingException {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+        val byteArrayOutputStream = new ByteArrayOutputStream();
+
+        System.setIn(byteArrayInputStream);
+        System.setOut(new PrintStream(byteArrayOutputStream));
+
+        calculatorController.calculateFromTo(
+                new InputStreamReader(System.in, "UTF-8"),
+                System.out::println
+        );
+
+        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
+        verifyNoMoreInteractions(calculatorModelMock);
+
+        val actual = byteArrayOutputStream.toString();
+        val expected = "1.0" + System.lineSeparator();
+
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenModelParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> new CalculatorConsoleController(null, new CalculatorConsoleView())
+                () -> new CalculatorControllerImpl(null, new CalculatorConsoleView())
         ).withMessage("calculatorModel is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenViewParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> new CalculatorConsoleController(new CalculatorNashornModel(), null)
+                () -> new CalculatorControllerImpl(new CalculatorNashornModel(), null)
         ).withMessage("calculatorView is marked @NonNull but is null");
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenBothParametersOfArgsConstructorAreNull() {
+        assertThatNullPointerException().isThrownBy(
+                () -> new CalculatorControllerImpl(null, null)
+        ).withMessage("calculatorModel is marked @NonNull but is null");
     }
 
     @Test
@@ -180,7 +255,25 @@ public class CalculatorConsoleControllerTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenCalculatorModelIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorControllerEmpty.calculateToConsoleInOut(new StringReader("15 + 5"))
+                () -> calculatorControllerEmpty.calculateToConsoleFrom(new StringReader("15 + 5"))
+        ).withMessage(null);
+    }
+
+    @Test
+    public void shouldThrowIllegalArgumentExceptionWhenReaderOfCalculatorIsNull() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> calculatorController.calculateToConsoleFrom(null)
+        ).withMessage("Argument for @NotNull parameter 'reader' of " +
+                "com/patternproject/controller/CalculatorControllerImpl.calculate must not be null"
+        );
+    }
+
+    @Test
+    public void shouldThrowIllegalArgumentExceptionWhenDoubleConsumerOfCalculatorIsNull() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> calculatorController.calculateFromConsoleTo(null)
+        ).withMessage("Argument for @NotNull parameter 'resultConsumer' of " +
+                "com/patternproject/controller/CalculatorControllerImpl.calculate must not be null"
         );
     }
 
@@ -189,8 +282,8 @@ public class CalculatorConsoleControllerTest {
         System.setOut(null);
 
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorController.calculateToConsoleInOut(new StringReader("15 + 5"))
-        );
+                () -> calculatorController.calculateToConsoleFrom(new StringReader("15 + 5"))
+        ).withMessage(null);
     }
 
     @Test
