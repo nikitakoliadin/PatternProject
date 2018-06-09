@@ -1,9 +1,7 @@
 package com.patternproject.controller;
 
 import com.patternproject.model.CalculatorModel;
-import com.patternproject.model.CalculatorNashornModel;
 import com.patternproject.view.CalculatorView;
-import com.patternproject.view.CalculatorConsoleView;
 
 import com.patternproject.util.TestUtil;
 
@@ -56,7 +54,7 @@ public class CalculatorControllerImplTest {
         assertThat(calculatorController).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
         assertThat(calculatorModelMock).isNotNull();
-        assertThat(new CalculatorControllerImpl(new CalculatorNashornModel(), new CalculatorConsoleView())).isNotNull();
+        assertThat(new CalculatorControllerImpl(calculatorModelMock, calculatorViewMock)).isNotNull();
     }
 
     @Test
@@ -220,14 +218,14 @@ public class CalculatorControllerImplTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenModelParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> new CalculatorControllerImpl(null, new CalculatorConsoleView())
+                () -> new CalculatorControllerImpl(null, calculatorViewMock)
         ).withMessage("calculatorModel is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenViewParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> new CalculatorControllerImpl(new CalculatorNashornModel(), null)
+                () -> new CalculatorControllerImpl(calculatorModelMock, null)
         ).withMessage("calculatorView is marked @NonNull but is null");
     }
 
