@@ -5,6 +5,7 @@ import com.patternproject.view.CalculatorView;
 
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Reader;
 import java.io.InputStreamReader;
@@ -39,9 +40,7 @@ public class CalculatorConsoleController implements CalculatorController {
      */
     @Override
     public void startDefaultCalculate() {
-        log.info("Method [{}] was started successful",
-                new Object() {}.getClass().getEnclosingMethod().getName()
-        );
+        log.info("Preparing input stream reader to set default input to the console for the console calculator");
 
         try (val reader = new InputStreamReader(System.in, "UTF-8")) {
             log.info("Reader [{}] was created successful with encoding [{}]",
@@ -62,17 +61,17 @@ public class CalculatorConsoleController implements CalculatorController {
      * @param reader information reading parameters.
      */
     public void calculateToConsoleInOut(Reader reader) {
-        log.info("Method [{}] was started successful",
-                new Object() {}.getClass().getEnclosingMethod().getName()
-        );
+        log.info("Preparing double consumer to set default output to the console for the console calculator");
 
-        consoleCalculator(reader, System.out::println);
+        DoubleConsumer doubleConsumer = System.out::println;
+
+        log.info("Preparing double consumer to output to the console was done");
+
+        consoleCalculator(reader, doubleConsumer);
     }
 
-    private void consoleCalculator(Reader reader, DoubleConsumer resultConsumer) {
-        log.info("Method [{}] was started successful",
-                new Object() {}.getClass().getEnclosingMethod().getName()
-        );
+    private void consoleCalculator(@NotNull Reader reader, @NotNull DoubleConsumer resultConsumer) {
+        log.info("Calculator is ready to calculate! Waiting for user input");
 
         new BufferedReader(reader).lines()
                 .flatMap((s) -> Stream.of(s.split(";")))
