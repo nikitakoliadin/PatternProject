@@ -26,7 +26,7 @@ public class CalculatorViewConsoleTest {
 
     @Mock
     private CalculatorController calculatorControllerMock;
-    
+
     private CalculatorViewConsole calculatorView;
     private CalculatorViewConsole calculatorViewEmpty;
 
