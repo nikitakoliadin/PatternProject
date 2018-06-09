@@ -1,7 +1,6 @@
 package com.patternproject.view;
 
 import com.patternproject.controller.CalculatorController;
-import com.patternproject.controller.CalculatorConsoleController;
 
 import com.patternproject.util.TestUtil;
 
@@ -23,17 +22,18 @@ import static org.mockito.Mockito.*;
  * @author Koliadin Nikita
  */
 @RunWith(MockitoJUnitRunner.class)
-public class CalculatorConsoleViewTest {
+public class CalculatorViewConsoleTest {
 
     @Mock
     private CalculatorController calculatorControllerMock;
-    private CalculatorConsoleView calculatorView;
-    private CalculatorConsoleView calculatorViewEmpty;
+    
+    private CalculatorViewConsole calculatorView;
+    private CalculatorViewConsole calculatorViewEmpty;
 
     @Before
     public void setUp() {
-        calculatorView = new CalculatorConsoleView();
-        calculatorViewEmpty = new CalculatorConsoleView();
+        calculatorView = new CalculatorViewConsole();
+        calculatorViewEmpty = new CalculatorViewConsole();
 
         calculatorView.setCalculatorController(calculatorControllerMock);
 
@@ -46,7 +46,7 @@ public class CalculatorConsoleViewTest {
         assertThat(calculatorView).isNotNull();
         assertThat(calculatorViewEmpty).isNotNull();
         assertThat(calculatorControllerMock).isNotNull();
-        assertThat(new CalculatorConsoleView(new CalculatorConsoleController())).isNotNull();
+        assertThat(new CalculatorViewConsole(calculatorControllerMock)).isNotNull();
     }
 
     @Test
@@ -58,18 +58,16 @@ public class CalculatorConsoleViewTest {
 
     @Test
     public void shouldGetAndSetController() {
-        val calculatorController = new CalculatorConsoleController();
-
-        calculatorViewEmpty.setCalculatorController(calculatorController);
+        calculatorViewEmpty.setCalculatorController(calculatorControllerMock);
 
         assertThat(calculatorViewEmpty.getCalculatorController()).isNotNull()
-                .isEqualTo(calculatorController)
+                .isEqualTo(calculatorControllerMock)
                 .isInstanceOf(CalculatorController.class);
     }
 
     @Test
     public void shouldRunDefaultRunner() {
-        calculatorView.run();
+        calculatorView.startConsoleCalculator();
 
         verify(calculatorControllerMock).startDefaultCalculate();
         verifyNoMoreInteractions(calculatorControllerMock);
@@ -81,7 +79,7 @@ public class CalculatorConsoleViewTest {
 
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorView.run();
+        calculatorView.startConsoleCalculator();
 
         val actual = byteArrayOutputStream.toString();
         val expected = "-> Hello!" + System.lineSeparator()
@@ -94,7 +92,7 @@ public class CalculatorConsoleViewTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenControllerParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> new CalculatorConsoleView(null)
+                () -> new CalculatorViewConsole(null)
         ).withMessage("calculatorController is marked @NonNull but is null");
     }
 
@@ -108,7 +106,7 @@ public class CalculatorConsoleViewTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenControllerIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorViewEmpty.run()
+                () -> calculatorViewEmpty.startConsoleCalculator()
         );
     }
 }
