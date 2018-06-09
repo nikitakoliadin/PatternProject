@@ -3,7 +3,7 @@ package com.patternproject.exceptions;
 /**
  * @author Koliadin Nikita
  *
- * This exception should be thrown when the input data was incorrect.
+ * This exception should be thrown when the input data has been incorrect.
  */
 public class InvalidInputException extends RuntimeException {
 
