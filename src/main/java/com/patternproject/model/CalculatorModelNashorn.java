@@ -19,11 +19,9 @@ import javax.script.ScriptException;
 public class CalculatorModelNashorn implements CalculatorModel {
 
     /**
-     * This method implements the calculator engine due to the Javascript
-     * engine - Nashorn.
+     * This method implements the calculator engine due to the Javascript engine - Nashorn.
      *
-     * @param expression is input parameter that can have math functions
-     *                   and  any kind of math operations.
+     * @param expression is input parameter that can have math functions and  any kind of math operations.
      * @return result of calculation.
      */
     @Override
