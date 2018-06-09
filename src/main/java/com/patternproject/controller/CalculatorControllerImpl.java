@@ -55,6 +55,7 @@ public class CalculatorControllerImpl implements CalculatorController {
      *
      * @param reader information reading parameters.
      */
+    @Override
     public void calculateToConsoleFrom(Reader reader) {
         log.info("Preparing double consumer to set default output to the console for the calculator");
 
@@ -72,6 +73,7 @@ public class CalculatorControllerImpl implements CalculatorController {
      *
      * @param resultConsumer result output parameter.
      */
+    @Override
     public void calculateFromConsoleTo(DoubleConsumer resultConsumer) {
         log.info("Preparing input stream reader to set default input to the console for the calculator");
 
@@ -94,6 +96,7 @@ public class CalculatorControllerImpl implements CalculatorController {
      * @param reader         information reading parameters.
      * @param resultConsumer result output parameter.
      */
+    @Override
     public void calculateFromTo(Reader reader, DoubleConsumer resultConsumer) {
         log.info("Preparing calculator to work!");
 
