@@ -30,7 +30,7 @@ public class CalculatorViewConsole implements CalculatorView {
 
         calculatorController.startDefaultCalculate();
     }
-    
+
     private void printGreeting() {
         System.out.println("-> Hello!" + System.lineSeparator()
                 + "-> I'm your calculator today!" + System.lineSeparator()
