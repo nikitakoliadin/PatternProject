@@ -1,4 +1,4 @@
-package com.patternproject.exceptions;
+package com.patternproject.exception;
 
 /**
  * @author Koliadin Nikita
