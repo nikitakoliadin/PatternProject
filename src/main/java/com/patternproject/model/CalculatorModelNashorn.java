@@ -1,6 +1,6 @@
 package com.patternproject.model;
 
-import com.patternproject.exceptions.InvalidInputException;
+import com.patternproject.exception.InvalidInputException;
 import com.patternproject.util.MathFunctionsUtil;
 
 import lombok.extern.slf4j.Slf4j;
