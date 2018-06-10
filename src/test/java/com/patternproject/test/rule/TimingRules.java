@@ -25,7 +25,7 @@ public class TimingRules {
 
         @Override
         protected void finished(long nanos, @NotNull Description description) {
-            val result = String.format("%-112s %7d",
+            val result = String.format("%-137s %7d",
                     description.getDisplayName(),
                     TimeUnit.NANOSECONDS.toMillis(nanos)
             );
@@ -48,20 +48,20 @@ public class TimingRules {
 
         @Override
         protected void after() {
-            val infoLine = String.format("Test of %-99s %12s",
+            val infoLine = String.format("Test of %-124s %12s",
                     className,
                     "Duration, ms"
             );
 
             log.info(System.lineSeparator()
-                    + "------------------------------------------------------------------------------------------------------------------------"
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
                     + System.lineSeparator()
                     + infoLine
                     + System.lineSeparator()
-                    + "------------------------------------------------------------------------------------------------------------------------"
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
                     + System.lineSeparator()
                     + results
-                    + "------------------------------------------------------------------------------------------------------------------------"
+                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
             );
         }
     };
