@@ -46,6 +46,8 @@
     * [x] README.md
 
 ## Fix In Future
+* Refract controller output to view
+* Add methds to voew
 * Add rules for test classes
 * Add log to test
 
