@@ -1,6 +1,6 @@
 package com.patternproject;
 
-import com.patternproject.util.TestUtil;
+import com.patternproject.test.util.TestUtil;
 
 import lombok.val;
 import org.junit.Before;
