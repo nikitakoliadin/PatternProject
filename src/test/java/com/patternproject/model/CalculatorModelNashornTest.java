@@ -2,8 +2,15 @@ package com.patternproject.model;
 
 import com.patternproject.exception.InvalidInputException;
 
+import com.patternproject.test.rule.TimingRules;
+
 import org.junit.Before;
+import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
+
+import org.junit.rules.ExternalResource;
+import org.junit.rules.Stopwatch;
 
 import javax.script.ScriptException;
 
@@ -13,6 +20,12 @@ import static org.assertj.core.api.Assertions.*;
  * @author Koliadin Nikita
  */
 public class CalculatorModelNashornTest {
+
+    @ClassRule
+    public static ExternalResource summary = TimingRules.SUMMARY;
+
+    @Rule
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
 
     private CalculatorModel calculatorModel;
 
