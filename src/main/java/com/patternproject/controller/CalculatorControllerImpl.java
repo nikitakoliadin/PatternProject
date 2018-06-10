@@ -40,7 +40,6 @@ public class CalculatorControllerImpl implements CalculatorController {
         log.info("Preparing double consumer to set default output to the console for the calculator");
 
         DoubleConsumer doubleConsumer = System.out::println;
-
         log.info("Preparing double consumer to set default output to the console for the calculator " +
                 "was done successful");
 
@@ -59,7 +58,6 @@ public class CalculatorControllerImpl implements CalculatorController {
         log.info("Preparing double consumer to set default output to the console for the calculator");
 
         DoubleConsumer doubleConsumer = System.out::println;
-
         log.info("Preparing double consumer to set default output to the console for the calculator " +
                 "was done successful");
 
@@ -82,6 +80,7 @@ public class CalculatorControllerImpl implements CalculatorController {
                     reader.getClass(),
                     reader.getEncoding()
             );
+
             calculate(reader, resultConsumer);
         } catch (IOException e) {
             e.printStackTrace();
