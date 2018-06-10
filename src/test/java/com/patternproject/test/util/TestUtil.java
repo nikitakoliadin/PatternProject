@@ -1,4 +1,4 @@
-package com.patternproject.util;
+package com.patternproject.test.util;
 
 import java.io.InputStream;
 import java.io.PrintStream;
