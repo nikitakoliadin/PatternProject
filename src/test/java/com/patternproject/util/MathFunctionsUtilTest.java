@@ -1,7 +1,5 @@
 package com.patternproject.util;
 
-import com.patternproject.exceptions.UtilClassException;
-
 import lombok.val;
 import org.junit.Test;
 
@@ -39,6 +37,6 @@ public class MathFunctionsUtilTest {
             val constructor = MathFunctionsUtil.class.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
-        }).withCauseInstanceOf(UtilClassException.class);
+        }).withCauseInstanceOf(UnsupportedOperationException.class);
     }
 }
