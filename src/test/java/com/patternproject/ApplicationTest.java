@@ -13,6 +13,7 @@ import org.junit.rules.ExternalResource;
 import org.junit.rules.Stopwatch;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
@@ -28,24 +29,10 @@ public class ApplicationTest {
     @Rule
     public Stopwatch stopwatch = TimingRules.STOPWATCH;
 
-    private Application application;
-
     @Before
     public void setUp() {
-        application = new Application();
-
         System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
         System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
-    }
-
-    @Test
-    public void shouldCreateObject() {
-        assertThat(application).isNotNull();
-    }
-
-    @Test
-    public void shouldImplements() {
-        assertThat(application).isInstanceOf(Application.class);
     }
 
     @Test
@@ -102,6 +89,15 @@ public class ApplicationTest {
                 + "15.0" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldThrowInvocationTargetExceptionWhenCreateObjectWithReflection() {
+        assertThatExceptionOfType(InvocationTargetException.class).isThrownBy(() -> {
+            val constructor = Application.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            constructor.newInstance();
+        }).withCauseInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
