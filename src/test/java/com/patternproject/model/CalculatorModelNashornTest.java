@@ -1,6 +1,6 @@
 package com.patternproject.model;
 
-import com.patternproject.exceptions.InvalidInputException;
+import com.patternproject.exception.InvalidInputException;
 
 import org.junit.Before;
 import org.junit.Test;
