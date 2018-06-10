@@ -1,10 +1,16 @@
 package com.patternproject;
 
+import com.patternproject.test.rule.TimingRules;
 import com.patternproject.test.util.TestUtil;
 
 import lombok.val;
 import org.junit.Before;
+import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
+
+import org.junit.rules.ExternalResource;
+import org.junit.rules.Stopwatch;
 
 import java.io.*;
 import java.util.Arrays;
@@ -15,6 +21,12 @@ import static org.assertj.core.api.Assertions.*;
  * @author Koliadin Nikita
  */
 public class ApplicationTest {
+
+    @ClassRule
+    public static ExternalResource summary = TimingRules.SUMMARY;
+
+    @Rule
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
 
     private Application application;
 
