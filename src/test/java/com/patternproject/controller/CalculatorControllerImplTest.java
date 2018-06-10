@@ -3,7 +3,7 @@ package com.patternproject.controller;
 import com.patternproject.model.CalculatorModel;
 import com.patternproject.view.CalculatorView;
 
-import com.patternproject.util.TestUtil;
+import com.patternproject.test.util.TestUtil;
 
 import lombok.val;
 import org.junit.Before;
