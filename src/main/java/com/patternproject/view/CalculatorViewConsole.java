@@ -29,12 +29,13 @@ public class CalculatorViewConsole implements CalculatorView {
     }
 
     private void printGreeting() {
-        log.info("Preparing to out greeting to the console");
+        log.info("Preparing to print greeting to the console");
 
         System.out.println("-> Hello!" + System.lineSeparator()
                 + "-> I'm your calculator today!" + System.lineSeparator()
                 + "-> To exit print: exit()"
         );
-        log.info("The greeting is displayed on the console successful");
+        log.info("Preparing to print greeting to the console was done successful! " +
+                "The greeting is displayed on the console");
     }
 }
