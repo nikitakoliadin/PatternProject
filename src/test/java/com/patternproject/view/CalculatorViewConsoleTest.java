@@ -2,14 +2,19 @@ package com.patternproject.view;
 
 import com.patternproject.controller.CalculatorController;
 
+import com.patternproject.test.rule.TimingRules;
 import com.patternproject.test.util.TestUtil;
 
 import lombok.val;
 import org.junit.Before;
+import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 
+import org.junit.rules.ExternalResource;
+import org.junit.rules.Stopwatch;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.ByteArrayOutputStream;
@@ -23,6 +28,12 @@ import static org.mockito.Mockito.*;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorViewConsoleTest {
+
+    @ClassRule
+    public static ExternalResource summary = TimingRules.SUMMARY;
+
+    @Rule
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
 
     @Mock
     private CalculatorController calculatorControllerMock;
