@@ -4,6 +4,7 @@ import com.patternproject.model.CalculatorModelNashorn;
 import com.patternproject.controller.CalculatorControllerImpl;
 import com.patternproject.view.CalculatorViewConsole;
 
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 
@@ -11,11 +12,12 @@ import lombok.val;
  * @author Koliadin Nikita
  */
 @Slf4j
+@UtilityClass
 public class Application {
     public static void main(String[] args) {
         log.info(System.lineSeparator() + "--------------------------------Calculator-------------------------------");
 
-        log.info("Application are preparing to start");
+        log.info("Preparing the application to start");
 
         val calculatorModel = new CalculatorModelNashorn();
         val calculatorController = new CalculatorControllerImpl();
@@ -25,7 +27,7 @@ public class Application {
         calculatorController.setCalculatorView(calculatorView);
         calculatorView.setCalculatorController(calculatorController);
 
-        log.info("Preparing of the application was done successful");
+        log.info("Preparing the application was done successful");
 
         calculatorView.startConsoleCalculator();
     }
