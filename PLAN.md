@@ -11,7 +11,6 @@
                             * [x] CalculatorControllerImpl
                         * exception
                             * [x] InvalidInputException
-                            * [x] UtilClassException
                         * model
                             * [x] CalculatorModel
                             * [x] CalculatorModelNashorn
@@ -51,6 +50,6 @@
 * Add log to test
 
 ## Bugs && Messages
-*Application - view mutation test
+* Application - view mutation test
 * CalculatorControllerImpl - IOException mutation test
 * CalculatorModelNashornTest.java - 1 message concat strings
