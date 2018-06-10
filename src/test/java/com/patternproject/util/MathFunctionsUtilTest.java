@@ -1,7 +1,14 @@
 package com.patternproject.util;
 
+import com.patternproject.test.rule.TimingRules;
+
 import lombok.val;
+import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
+
+import org.junit.rules.ExternalResource;
+import org.junit.rules.Stopwatch;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -12,6 +19,12 @@ import static org.assertj.core.api.Assertions.*;
  * @author Koliadin Nikita
  */
 public class MathFunctionsUtilTest {
+
+    @ClassRule
+    public static ExternalResource summary = TimingRules.SUMMARY;
+
+    @Rule
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
 
     @Test
     public void shouldBeCorrectListOfMathFunctions() {
