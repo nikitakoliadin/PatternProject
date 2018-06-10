@@ -30,9 +30,13 @@
                             * [x] CalculatorControllerImplTest
                         * model
                             * [x] CalculatorModelNashornTest
+                        * test
+                            * rule
+                                * [x] TimingRules
+                            * util
+                                * [x] TestUtil
                         * util
                             * [x] MathFunctionsUtilTest
-                            * [x] TestUtil
                         * view
                             * [x] CalculatorViewConsoleTest
                     * [x] ApplicationTest
@@ -48,7 +52,6 @@
 ## Fix In Future
 * Refract controller output to view
 * Add methds to voew
-* Add rules for test classes
 * Add log to test
 
 ## Bugs && Messages
