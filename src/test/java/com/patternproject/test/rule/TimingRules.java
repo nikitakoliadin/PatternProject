@@ -1,5 +1,7 @@
 package com.patternproject.test.rule;
 
+import com.patternproject.test.util.TestUtil;
+
 import lombok.experimental.UtilityClass;
 import lombok.val;
 import org.jetbrains.annotations.NotNull;
@@ -11,8 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
-
-import static com.patternproject.test.util.TestUtil.setInputOutputStreamToConsole;
 
 /**
  * @author Koliadin Nikita
@@ -77,12 +77,12 @@ public class TimingRules {
 
         @Override
         protected void before() {
-            setInputOutputStreamToConsole();
+            TestUtil.setInputOutputStreamToConsole();
         }
 
         @Override
         protected void after() {
-            setInputOutputStreamToConsole();
+            TestUtil.setInputOutputStreamToConsole();
         }
     };
 
