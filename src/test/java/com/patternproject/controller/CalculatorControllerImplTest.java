@@ -5,7 +5,6 @@ import com.patternproject.view.CalculatorView;
 
 import com.patternproject.test.rule.TimingRules;
 
-
 import lombok.val;
 import org.junit.Before;
 import org.junit.ClassRule;
