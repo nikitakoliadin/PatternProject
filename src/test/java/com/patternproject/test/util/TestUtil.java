@@ -20,4 +20,13 @@ public class TestUtil {
      * This constant contain PrintStream to console.
      */
     public final PrintStream CONSOLE_PRINT_STREAM = System.out;
+
+    /**
+     * This method set input and output to the console. Use it before and after each test where the input
+     * or output is substituted.
+     */
+    public void setInputOutputToConsole() {
+        System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
+        System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
+    }
 }
