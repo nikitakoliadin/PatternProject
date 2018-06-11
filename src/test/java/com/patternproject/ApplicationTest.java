@@ -1,5 +1,7 @@
 package com.patternproject;
 
+import com.patternproject.test.rule.TimingRules;
+
 import lombok.val;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -13,9 +15,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 import static com.patternproject.Application.main;
-import static com.patternproject.test.rule.TimingRules.INPUT_OUTPUT_SETUP;
-import static com.patternproject.test.rule.TimingRules.STOPWATCH;
-import static com.patternproject.test.rule.TimingRules.SUMMARY;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -24,12 +23,12 @@ import static org.assertj.core.api.Assertions.*;
 public class ApplicationTest {
 
     @ClassRule
-    public static ExternalResource summary = SUMMARY;
+    public static ExternalResource summary = TimingRules.SUMMARY;
 
     @Rule
-    public Stopwatch stopwatch = STOPWATCH;
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
     @Rule
-    public ExternalResource inputOutputSetup = INPUT_OUTPUT_SETUP;
+    public ExternalResource inputOutputSetup = TimingRules.INPUT_OUTPUT_SETUP;
 
     @Test
     public void shouldCalculateExpression() {
