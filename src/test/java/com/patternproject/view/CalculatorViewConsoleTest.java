@@ -2,6 +2,8 @@ package com.patternproject.view;
 
 import com.patternproject.controller.CalculatorController;
 
+import com.patternproject.test.rule.TimingRules;
+
 import lombok.val;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -17,9 +19,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static com.patternproject.test.rule.TimingRules.INPUT_OUTPUT_SETUP;
-import static com.patternproject.test.rule.TimingRules.STOPWATCH;
-import static com.patternproject.test.rule.TimingRules.SUMMARY;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -30,12 +29,12 @@ import static org.mockito.Mockito.*;
 public class CalculatorViewConsoleTest {
 
     @ClassRule
-    public static ExternalResource summary = SUMMARY;
+    public static ExternalResource summary = TimingRules.SUMMARY;
 
     @Rule
-    public Stopwatch stopwatch = STOPWATCH;
+    public Stopwatch stopwatch = TimingRules.STOPWATCH;
     @Rule
-    public ExternalResource inputOutputSetup = INPUT_OUTPUT_SETUP;
+    public ExternalResource inputOutputSetup = TimingRules.INPUT_OUTPUT_SETUP;
 
     @Mock
     private CalculatorController calculatorControllerMock;
