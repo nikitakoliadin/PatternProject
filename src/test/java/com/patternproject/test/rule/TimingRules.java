@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.patternproject.test.util.TestUtil.setInputOutputStreamToConsole;
+
 /**
  * @author Koliadin Nikita
  */
@@ -19,7 +21,8 @@ import java.util.concurrent.TimeUnit;
 public class TimingRules {
 
     /**
-     * The constant is used for calculating of the time spent by a test. Use it in @Rule JUnit annotation.
+     * The constant is used as a rule for calculating of the time spent by a test.
+     * It is used as @Rule JUnit annotation.
      */
     public final Stopwatch STOPWATCH = new Stopwatch() {
 
@@ -37,7 +40,8 @@ public class TimingRules {
     };
 
     /**
-     * The constant is used for output results of the class tests. Use it in @ClassRule JUnit annotation.
+     * The constant is used as a rule for output results of the class tests.
+     * It is used as @ClassRule JUnit annotation.
      */
     public final ExternalResource SUMMARY = new ExternalResource() {
 
@@ -52,7 +56,6 @@ public class TimingRules {
                     className,
                     "Duration, ms"
             );
-
             log.info(System.lineSeparator()
                     + "-------------------------------------------------------------------------------------------------------------------------------------------------"
                     + System.lineSeparator()
@@ -63,6 +66,23 @@ public class TimingRules {
                     + results
                     + "-------------------------------------------------------------------------------------------------------------------------------------------------"
             );
+        }
+    };
+
+    /**
+     * This constant is used as a rule for configure input and output on the console.
+     * It is used as @Rule JUnit annotation.
+     */
+    public final ExternalResource INPUT_OUTPUT_SETUP = new ExternalResource() {
+
+        @Override
+        protected void before() {
+            setInputOutputStreamToConsole();
+        }
+
+        @Override
+        protected void after() {
+            setInputOutputStreamToConsole();
         }
     };
 
