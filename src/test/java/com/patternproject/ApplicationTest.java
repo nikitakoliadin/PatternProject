@@ -1,10 +1,6 @@
 package com.patternproject;
 
-import com.patternproject.test.rule.TimingRules;
-import com.patternproject.test.util.TestUtil;
-
 import lombok.val;
-import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,6 +12,10 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
+import static com.patternproject.Application.main;
+import static com.patternproject.test.rule.TimingRules.INPUT_OUTPUT_SETUP;
+import static com.patternproject.test.rule.TimingRules.STOPWATCH;
+import static com.patternproject.test.rule.TimingRules.SUMMARY;
 import static org.assertj.core.api.Assertions.*;
 
 /**
@@ -24,16 +24,12 @@ import static org.assertj.core.api.Assertions.*;
 public class ApplicationTest {
 
     @ClassRule
-    public static ExternalResource summary = TimingRules.SUMMARY;
+    public static ExternalResource summary = SUMMARY;
 
     @Rule
-    public Stopwatch stopwatch = TimingRules.STOPWATCH;
-
-    @Before
-    public void setUp() {
-        System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
-        System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
-    }
+    public Stopwatch stopwatch = STOPWATCH;
+    @Rule
+    public ExternalResource inputOutputSetup = INPUT_OUTPUT_SETUP;
 
     @Test
     public void shouldCalculateExpression() {
@@ -45,7 +41,7 @@ public class ApplicationTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        Application.main(null);
+        main(null);
 
         val actual = byteArrayOutputStream.toString();
         val expected = "-> Hello!" + System.lineSeparator()
@@ -71,7 +67,7 @@ public class ApplicationTest {
         Arrays.stream(inputs).forEach((input) -> {
             val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
             System.setIn(byteArrayInputStream);
-            Application.main(null);
+            main(null);
         });
 
         val actual = byteArrayOutputStream.toString();
@@ -104,7 +100,7 @@ public class ApplicationTest {
     public void shouldThrowNullPointerExceptionWhenSystemInIsNull() {
         System.setIn(null);
         assertThatNullPointerException().isThrownBy(
-                () -> Application.main(null)
+                () -> main(null)
         );
     }
 
@@ -112,7 +108,7 @@ public class ApplicationTest {
     public void shouldThrowNullPointerExceptionWhenSystemOutIsNull() {
         System.setOut(null);
         assertThatNullPointerException().isThrownBy(
-                () -> Application.main(null)
+                () -> main(null)
         );
     }
 }
