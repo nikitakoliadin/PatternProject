@@ -51,8 +51,8 @@
 
 ## Fix In Future
 * Refract controller output to view
-* Add methds to voew
-* Add log to test
+* Add methds to view
+* Last test of controller
 
 ## Bugs && Messages
 * Application - view mutation test
