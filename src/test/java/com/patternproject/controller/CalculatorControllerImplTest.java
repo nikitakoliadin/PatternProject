@@ -3,9 +3,6 @@ package com.patternproject.controller;
 import com.patternproject.model.CalculatorModel;
 import com.patternproject.view.CalculatorView;
 
-import com.patternproject.test.rule.TimingRules;
-import com.patternproject.test.util.TestUtil;
-
 import lombok.val;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -20,6 +17,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.*;
 
+import static com.patternproject.test.rule.TimingRules.INPUT_OUTPUT_SETUP;
+import static com.patternproject.test.rule.TimingRules.STOPWATCH;
+import static com.patternproject.test.rule.TimingRules.SUMMARY;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -30,10 +30,12 @@ import static org.mockito.Mockito.*;
 public class CalculatorControllerImplTest {
 
     @ClassRule
-    public static ExternalResource summary = TimingRules.SUMMARY;
+    public static ExternalResource summary = SUMMARY;
 
     @Rule
-    public Stopwatch stopwatch = TimingRules.STOPWATCH;
+    public Stopwatch stopwatch = STOPWATCH;
+    @Rule
+    public ExternalResource inputOutputSetup = INPUT_OUTPUT_SETUP;
 
     @Mock
     private CalculatorModel calculatorModelMock;
@@ -50,9 +52,6 @@ public class CalculatorControllerImplTest {
 
         calculatorController.setCalculatorModel(calculatorModelMock);
         calculatorController.setCalculatorView(calculatorViewMock);
-
-        System.setIn(TestUtil.CONSOLE_INPUT_STREAM);
-        System.setOut(TestUtil.CONSOLE_PRINT_STREAM);
 
         when((calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)")).thenReturn(1d);
         when((calculatorModelMock).calculate("15+3")).thenReturn(18d);
