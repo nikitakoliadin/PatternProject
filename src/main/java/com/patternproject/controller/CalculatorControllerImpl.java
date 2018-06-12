@@ -34,6 +34,8 @@ public class CalculatorControllerImpl implements CalculatorController {
      * This method implements the beginning of work with the calculator. It does not have any input parameters.
      * The output is carried out to the console, the reading is done from the console also.
      * If expression divided by ';' then each result out to the new line. Empty lines are not calculated.
+     * All calculations take place in the {@link CalculatorModel}.
+     * All outputs take place in the {@link CalculatorView}.
      */
     @Override
     public void startDefaultCalculate() {
@@ -50,6 +52,8 @@ public class CalculatorControllerImpl implements CalculatorController {
      * This method takes Reader parameter and after calculation of the expression out the result to console
      * in the new line. If expression divided by ';' then each result out to the new line.
      * Empty lines are not calculated.
+     * All calculations take place in the {@link CalculatorModel}.
+     * All outputs take place in the {@link CalculatorView}.
      *
      * @param reader information reading parameters.
      */
@@ -67,6 +71,8 @@ public class CalculatorControllerImpl implements CalculatorController {
     /**
      * This method takes DoubleConsumer parameter and after calculation of the expression out the result
      * to DoubleConsumer. Empty lines are not calculated.
+     * All calculations take place in the {@link CalculatorModel}.
+     * All outputs take place in the {@link CalculatorView}.
      *
      * @param resultConsumer result output parameter.
      */
@@ -90,6 +96,8 @@ public class CalculatorControllerImpl implements CalculatorController {
     /**
      * This method read expression to calculate from Reader and then output result to DoubleConsumer.
      * Empty lines are not calculated.
+     * All calculations take place in the {@link CalculatorModel}.
+     * All outputs take place in the {@link CalculatorView}.
      *
      * @param reader         information reading parameters.
      * @param resultConsumer result output parameter.
@@ -108,6 +116,6 @@ public class CalculatorControllerImpl implements CalculatorController {
                 .flatMap((s) -> Stream.of(s.split(";")))
                 .filter((s) -> !s.trim().isEmpty())
                 .mapToDouble(calculatorModel::calculate)
-                .forEach(resultConsumer);
+                .forEach(result -> calculatorView.outputResult(resultConsumer, result));
     }
 }
