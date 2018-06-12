@@ -10,12 +10,12 @@ import java.util.function.DoubleConsumer;
 public interface CalculatorView {
 
     /**
-     * @return parameter of the calculator controller
+     * @return parameter of the calculator controller.
      */
     CalculatorController getCalculatorController();
 
     /**
-     * @param calculatorController parameter of the calculator controller
+     * @param calculatorController parameter of the calculator controller.
      */
     void setCalculatorController(CalculatorController calculatorController);
 
