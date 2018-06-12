@@ -5,6 +5,8 @@ import com.patternproject.controller.CalculatorController;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.function.DoubleConsumer;
+
 /**
  * @author Koliadin Nikita
  */
@@ -26,6 +28,20 @@ public class CalculatorViewConsole implements CalculatorView {
         printGreeting();
 
         calculatorController.startDefaultCalculate();
+    }
+
+    /**
+     * This method implements outputs information specified by the consumer.
+     *
+     * @param resultConsumer result output parameter.
+     * @param result         result of the calculation.
+     */
+    @Override
+    public void outputResult(DoubleConsumer resultConsumer, double result) {
+        log.info("Preparing to output result of the calculation");
+
+        resultConsumer.accept(result);
+        log.info("Preparing to output result of the calculation was done successful! Waiting next input");
     }
 
     private void printGreeting() {
