@@ -41,7 +41,7 @@ public class MathFunctionsUtilTest {
     public void shouldThrowUnsupportedOperationExceptionWhenDoPutOperationsWithImmutableList() {
         assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
                 () -> MathFunctionsUtil.MATH_FUNCTIONS.add("a")
-        );
+        ).withMessage(null);
     }
 
     @Test
