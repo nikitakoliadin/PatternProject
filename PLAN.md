@@ -50,11 +50,9 @@
     * [x] README.md
 
 ## Fix In Future
-* Refract controller output to view
 * Add methds to view
 * Last test of controller
 
 ## Bugs && Messages
-* Application - view mutation test
 * CalculatorControllerImpl - IOException mutation test
 * CalculatorModelNashornTest.java - 1 message concat strings
