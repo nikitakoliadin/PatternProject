@@ -12,7 +12,6 @@ import org.junit.rules.Stopwatch;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 
 import static com.patternproject.Application.main;
 import static org.assertj.core.api.Assertions.*;
@@ -31,7 +30,7 @@ public class ApplicationTest {
     public ExternalResource inputOutputSetup = TimingRules.INPUT_OUTPUT_SETUP;
 
     @Test
-    public void shouldCalculateExpression() {
+    public void shouldWorkApplication() {
         val input = "sin(1)*sin(1)+cos(1)*cos(1)";
 
         val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
@@ -52,41 +51,6 @@ public class ApplicationTest {
     }
 
     @Test
-    public void shouldCalculateALotOfExpression() {
-        val inputs = new String[]{
-                "sin(1)*sin(1)+cos(1)*cos(1)",
-                "(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))",
-                "tan(0)+sqrt(225)"
-        };
-
-        val byteArrayOutputStream = new ByteArrayOutputStream();
-
-        System.setOut(new PrintStream(byteArrayOutputStream));
-
-        Arrays.stream(inputs).forEach((input) -> {
-            val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
-            System.setIn(byteArrayInputStream);
-            main(null);
-        });
-
-        val actual = byteArrayOutputStream.toString();
-        val expected = "-> Hello!" + System.lineSeparator()
-                + "-> I'm your calculator today!" + System.lineSeparator()
-                + "-> To exit print: exit()" + System.lineSeparator()
-                + "1.0" + System.lineSeparator()
-                + "-> Hello!" + System.lineSeparator()
-                + "-> I'm your calculator today!" + System.lineSeparator()
-                + "-> To exit print: exit()" + System.lineSeparator()
-                + "2.0" + System.lineSeparator()
-                + "-> Hello!" + System.lineSeparator()
-                + "-> I'm your calculator today!" + System.lineSeparator()
-                + "-> To exit print: exit()" + System.lineSeparator()
-                + "15.0" + System.lineSeparator();
-
-        assertThat(actual).isEqualTo(expected);
-    }
-
-    @Test
     public void shouldThrowInvocationTargetExceptionWhenCreateObjectWithReflection() {
         assertThatExceptionOfType(InvocationTargetException.class).isThrownBy(() -> {
             val constructor = Application.class.getDeclaredConstructor();
@@ -98,16 +62,18 @@ public class ApplicationTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenSystemInIsNull() {
         System.setIn(null);
+
         assertThatNullPointerException().isThrownBy(
                 () -> main(null)
-        );
+        ).withMessage(null);
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenSystemOutIsNull() {
         System.setOut(null);
+
         assertThatNullPointerException().isThrownBy(
                 () -> main(null)
-        );
+        ).withMessage(null);
     }
 }
