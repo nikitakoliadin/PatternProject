@@ -1,7 +1,9 @@
 package com.patternproject.controller;
 
 import com.patternproject.model.CalculatorModel;
+import com.patternproject.model.CalculatorModelNashorn;
 import com.patternproject.view.CalculatorView;
+import com.patternproject.view.CalculatorViewConsole;
 
 import com.patternproject.test.rule.TimingRules;
 
@@ -18,6 +20,7 @@ import org.junit.rules.Stopwatch;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.*;
+import java.util.function.DoubleConsumer;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -40,37 +43,45 @@ public class CalculatorControllerImplTest {
     private CalculatorModel calculatorModelMock;
     @Mock
     private CalculatorView calculatorViewMock;
+    @Mock
+    private DoubleConsumer doubleConsumer;
 
-    private CalculatorControllerImpl calculatorController;
+    private CalculatorControllerImpl calculatorControllerMock;
+    private CalculatorControllerImpl calculatorControllerReal;
     private CalculatorControllerImpl calculatorControllerEmpty;
 
     @Before
     public void setUp() {
-        calculatorController = new CalculatorControllerImpl();
+        calculatorControllerMock = new CalculatorControllerImpl();
+        calculatorControllerReal = new CalculatorControllerImpl(new CalculatorModelNashorn(), new CalculatorViewConsole());
         calculatorControllerEmpty = new CalculatorControllerImpl();
 
-        calculatorController.setCalculatorModel(calculatorModelMock);
-        calculatorController.setCalculatorView(calculatorViewMock);
+        calculatorControllerMock.setCalculatorModel(calculatorModelMock);
+        calculatorControllerMock.setCalculatorView(calculatorViewMock);
 
         when((calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)")).thenReturn(1d);
         when((calculatorModelMock).calculate("15+3")).thenReturn(18d);
         when((calculatorModelMock).calculate("sqrt(225)")).thenReturn(15d);
         when((calculatorModelMock).calculate("tan(0)")).thenReturn(0d);
+
+        doNothing().when(calculatorViewMock).outputResult(doubleConsumer, 1d);
+        doNothing().when(calculatorViewMock).outputResult(doubleConsumer, 18d);
+        doNothing().when(calculatorViewMock).outputResult(doubleConsumer, 15d);
+        doNothing().when(calculatorViewMock).outputResult(doubleConsumer, 0d);
     }
 
     @Test
     public void shouldCreateObject() {
-        assertThat(calculatorController).isNotNull();
+        assertThat(calculatorControllerMock).isNotNull();
+        assertThat(calculatorControllerReal).isNotNull();
         assertThat(calculatorControllerEmpty).isNotNull();
-        assertThat(calculatorModelMock).isNotNull();
-        assertThat(new CalculatorControllerImpl(calculatorModelMock, calculatorViewMock)).isNotNull();
     }
 
     @Test
     public void shouldImplements() {
-        assertThat(calculatorController).isInstanceOf(CalculatorController.class);
+        assertThat(calculatorControllerMock).isInstanceOf(CalculatorController.class);
+        assertThat(calculatorControllerReal).isInstanceOf(CalculatorController.class);
         assertThat(calculatorControllerEmpty).isInstanceOf(CalculatorController.class);
-        assertThat(calculatorModelMock).isInstanceOf(CalculatorModel.class);
     }
 
     @Test
@@ -89,9 +100,58 @@ public class CalculatorControllerImplTest {
 
     @Test
     public void shouldSkipEmptyExpression() {
-        calculatorController.calculateToConsoleFrom(new StringReader(";  ; ;;;  \b  ; \n;\n\n \t\t; \t; \t \t\r \t;  "));
+        calculatorControllerMock.calculateToConsoleFrom(new StringReader(";  ; ;;;  \b  ; \n;\n\n \t\t; \t; \t \t\r \t;  "));
 
         verifyZeroInteractions(calculatorModelMock);
+        verifyZeroInteractions(calculatorViewMock);
+    }
+
+    @Test
+    public void shouldPassSeparatedExpressions() {
+        calculatorControllerMock.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
+
+        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
+        verify(calculatorModelMock).calculate("15+3");
+        verify(calculatorModelMock).calculate("sqrt(225)");
+        verify(calculatorModelMock).calculate("tan(0)");
+
+        verifyNoMoreInteractions(calculatorModelMock);
+    }
+
+    @Test
+    public void shouldCallCorrectTimes() {
+        calculatorControllerMock.calculateFromTo(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"), doubleConsumer);
+
+        verify(calculatorModelMock, times(1)).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
+        verify(calculatorModelMock, times(1)).calculate("15+3");
+        verify(calculatorModelMock, times(1)).calculate("sqrt(225)");
+        verify(calculatorModelMock, times(1)).calculate("tan(0)");
+
+        verifyNoMoreInteractions(calculatorModelMock);
+
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 1d);
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 18d);
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 15d);
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 0d);
+
+        verifyNoMoreInteractions(calculatorViewMock);
+    }
+
+    @Test
+    public void shouldIdentifySpaces() {
+        when((calculatorModelMock).calculate("  tan(0)")).thenReturn(0d);
+
+        calculatorControllerMock.calculateFromTo(new StringReader("sqrt(225);  tan(0)"), doubleConsumer);
+
+        verify(calculatorModelMock, times(1)).calculate("sqrt(225)");
+        verify(calculatorModelMock, times(1)).calculate("  tan(0)");
+
+        verifyNoMoreInteractions(calculatorModelMock);
+
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 15d);
+        verify(calculatorViewMock, times(1)).outputResult(doubleConsumer, 0d);
+
+        verifyNoMoreInteractions(calculatorViewMock);
     }
 
     @Test
@@ -100,7 +160,7 @@ public class CalculatorControllerImplTest {
 
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
+        calculatorControllerReal.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator()
@@ -112,28 +172,17 @@ public class CalculatorControllerImplTest {
     }
 
     @Test
-    public void shouldPassSeparatedExpressions() {
-        System.out.println("====[TEST] shouldPassSeparatedExpressions [TEST]====");
+    public void shouldCallMethodStartDefaultCalculate() {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
 
-        calculatorController.calculateToConsoleFrom(new StringReader("sin(1)*sin(1)+cos(1)*cos(1);15+3;sqrt(225);tan(0)"));
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
 
-        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
-        verify(calculatorModelMock).calculate("15+3");
-        verify(calculatorModelMock).calculate("sqrt(225)");
-        verify(calculatorModelMock).calculate("tan(0)");
-        verifyNoMoreInteractions(calculatorModelMock);
-    }
+        System.setIn(byteArrayInputStream);
 
-    @Test
-    public void shouldIdentifySpace() {
-        System.out.println("====[TEST] shouldIdentifySpace [TEST]====");
+        calculatorControllerMock.startDefaultCalculate();
 
-        when((calculatorModelMock).calculate("  tan(0)")).thenReturn(0d);
+        verify(calculatorModelMock, times(1)).calculate(input);
 
-        calculatorController.calculateToConsoleFrom(new StringReader("sqrt(225);  tan(0)"));
-
-        verify(calculatorModelMock).calculate("sqrt(225)");
-        verify(calculatorModelMock).calculate("  tan(0)");
         verifyNoMoreInteractions(calculatorModelMock);
     }
 
@@ -147,15 +196,27 @@ public class CalculatorControllerImplTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.startDefaultCalculate();
-
-        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
-        verifyNoMoreInteractions(calculatorModelMock);
+        calculatorControllerReal.startDefaultCalculate();
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldCallMethodCalculateToConsoleFrom() throws UnsupportedEncodingException {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+
+        System.setIn(byteArrayInputStream);
+
+        calculatorControllerMock.calculateToConsoleFrom(new InputStreamReader(System.in, "UTF-8"));
+
+        verify(calculatorModelMock, times(1)).calculate(input);
+
+        verifyNoMoreInteractions(calculatorModelMock);
     }
 
     @Test
@@ -168,15 +229,27 @@ public class CalculatorControllerImplTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.calculateToConsoleFrom(new InputStreamReader(System.in, "UTF-8"));
-
-        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
-        verifyNoMoreInteractions(calculatorModelMock);
+        calculatorControllerReal.calculateToConsoleFrom(new InputStreamReader(System.in, "UTF-8"));
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldCallMethodCalculateFromConsoleTo() {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+
+        System.setIn(byteArrayInputStream);
+
+        calculatorControllerMock.calculateFromConsoleTo(System.out::println);
+
+        verify(calculatorModelMock, times(1)).calculate(input);
+
+        verifyNoMoreInteractions(calculatorModelMock);
     }
 
     @Test
@@ -189,15 +262,30 @@ public class CalculatorControllerImplTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.calculateFromConsoleTo(System.out::println);
-
-        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
-        verifyNoMoreInteractions(calculatorModelMock);
+        calculatorControllerReal.calculateFromConsoleTo(System.out::println);
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldCallMethodCalculateFromTo() throws UnsupportedEncodingException {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = new ByteArrayInputStream(input.getBytes());
+
+        System.setIn(byteArrayInputStream);
+
+        calculatorControllerMock.calculateFromTo(
+                new InputStreamReader(System.in, "UTF-8"),
+                System.out::println
+        );
+
+        verify(calculatorModelMock, times(1)).calculate(input);
+
+        verifyNoMoreInteractions(calculatorModelMock);
     }
 
     @Test
@@ -210,13 +298,10 @@ public class CalculatorControllerImplTest {
         System.setIn(byteArrayInputStream);
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorController.calculateFromTo(
+        calculatorControllerReal.calculateFromTo(
                 new InputStreamReader(System.in, "UTF-8"),
                 System.out::println
         );
-
-        verify(calculatorModelMock).calculate("sin(1)*sin(1)+cos(1)*cos(1)");
-        verifyNoMoreInteractions(calculatorModelMock);
 
         val actual = byteArrayOutputStream.toString();
         val expected = "1.0" + System.lineSeparator();
@@ -261,6 +346,17 @@ public class CalculatorControllerImplTest {
 
     @Test
     public void shouldThrowNullPointerExceptionWhenCalculatorModelIsNull() {
+        calculatorControllerEmpty.setCalculatorView(new CalculatorViewConsole());
+
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorControllerEmpty.calculateToConsoleFrom(new StringReader("15 + 5"))
+        ).withMessage(null);
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenCalculatorViewIsNull() {
+        calculatorControllerEmpty.setCalculatorModel(new CalculatorModelNashorn());
+
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerEmpty.calculateToConsoleFrom(new StringReader("15 + 5"))
         ).withMessage(null);
@@ -269,14 +365,14 @@ public class CalculatorControllerImplTest {
     @Test
     public void shouldThrowNullPointerExceptionWhenReaderOfCalculatorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorController.calculateToConsoleFrom(null)
+                () -> calculatorControllerReal.calculateToConsoleFrom(null)
         ).withMessage("reader is marked @NonNull but is null");
     }
 
     @Test
     public void shouldThrowNullPointerExceptionWhenDoubleConsumerOfCalculatorIsNull() {
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorController.calculateFromConsoleTo(null)
+                () -> calculatorControllerReal.calculateFromConsoleTo(null)
         ).withMessage("resultConsumer is marked @NonNull but is null");
     }
 
@@ -285,7 +381,16 @@ public class CalculatorControllerImplTest {
         System.setOut(null);
 
         assertThatNullPointerException().isThrownBy(
-                () -> calculatorController.calculateToConsoleFrom(new StringReader("15 + 5"))
+                () -> calculatorControllerReal.calculateToConsoleFrom(new StringReader("15 + 5"))
+        ).withMessage(null);
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSystemInIsNull() {
+        System.setIn(null);
+
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorControllerReal.calculateToConsoleFrom(new StringReader("15 + 5"))
         ).withMessage(null);
     }
 
@@ -300,7 +405,7 @@ public class CalculatorControllerImplTest {
         when((calculatorModelMock).calculate("end")).thenThrow(IllegalArgumentException.class);
 
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
-                () -> calculatorController.startDefaultCalculate()
+                () -> calculatorControllerMock.startDefaultCalculate()
         );
 
         verify(calculatorModelMock).calculate("end");
