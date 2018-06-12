@@ -33,7 +33,10 @@ public class CalculatorControllerImpl implements CalculatorController {
     /**
      * This method implements the beginning of work with the calculator. It does not have any input parameters.
      * The output is carried out to the console, the reading is done from the console also.
-     * If expression divided by ';' then each result out to the new line. Empty lines are not calculated.
+     * If expression divided by ';' then each result out to the new line.
+     * Empty lines are not calculated.
+     * Incoming data comes from the console.
+     * Result output to the console.
      * All calculations take place in the {@link CalculatorModel}.
      * All outputs take place in the {@link CalculatorView}.
      */
@@ -50,8 +53,11 @@ public class CalculatorControllerImpl implements CalculatorController {
 
     /**
      * This method takes Reader parameter and after calculation of the expression out the result to console
-     * in the new line. If expression divided by ';' then each result out to the new line.
+     * in the new line.
+     * If expression divided by ';' then each result out to the new line.
      * Empty lines are not calculated.
+     * Incoming data comes from the reader.
+     * Result output to the console.
      * All calculations take place in the {@link CalculatorModel}.
      * All outputs take place in the {@link CalculatorView}.
      *
@@ -70,7 +76,11 @@ public class CalculatorControllerImpl implements CalculatorController {
 
     /**
      * This method takes DoubleConsumer parameter and after calculation of the expression out the result
-     * to DoubleConsumer. Empty lines are not calculated.
+     * to DoubleConsumer.
+     * If expression divided by ';' then each result out to the new line.
+     * Empty lines are not calculated.
+     * Incoming data comes from the console.
+     * Result output to the resultConsumer.
      * All calculations take place in the {@link CalculatorModel}.
      * All outputs take place in the {@link CalculatorView}.
      *
@@ -95,7 +105,10 @@ public class CalculatorControllerImpl implements CalculatorController {
 
     /**
      * This method read expression to calculate from Reader and then output result to DoubleConsumer.
+     * If expression divided by ';' then each result out to the new line.
      * Empty lines are not calculated.
+     * Incoming data comes from the console.
+     * Result output to the resultConsumer.
      * All calculations take place in the {@link CalculatorModel}.
      * All outputs take place in the {@link CalculatorView}.
      *
