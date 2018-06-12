@@ -40,9 +40,9 @@ public class CalculatorViewConsoleTest {
     @Mock
     private CalculatorController calculatorControllerMock;
 
-    private CalculatorViewConsole calculatorViewMock;
-    private CalculatorViewConsole calculatorViewReal;
-    private CalculatorViewConsole calculatorViewEmpty;
+    private CalculatorView calculatorViewMock;
+    private CalculatorView calculatorViewReal;
+    private CalculatorView calculatorViewEmpty;
 
     @Before
     public void setUp() {
