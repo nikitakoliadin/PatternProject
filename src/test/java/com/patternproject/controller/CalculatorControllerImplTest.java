@@ -46,9 +46,9 @@ public class CalculatorControllerImplTest {
     @Mock
     private DoubleConsumer doubleConsumer;
 
-    private CalculatorControllerImpl calculatorControllerMock;
-    private CalculatorControllerImpl calculatorControllerReal;
-    private CalculatorControllerImpl calculatorControllerEmpty;
+    private CalculatorController calculatorControllerMock;
+    private CalculatorController calculatorControllerReal;
+    private CalculatorController calculatorControllerEmpty;
 
     @Before
     public void setUp() {
