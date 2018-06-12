@@ -1,6 +1,7 @@
 package com.patternproject.view;
 
 import com.patternproject.controller.CalculatorController;
+import com.patternproject.controller.CalculatorControllerImpl;
 
 import com.patternproject.test.rule.TimingRules;
 
@@ -39,30 +40,31 @@ public class CalculatorViewConsoleTest {
     @Mock
     private CalculatorController calculatorControllerMock;
 
-    private CalculatorViewConsole calculatorView;
+    private CalculatorViewConsole calculatorViewMock;
+    private CalculatorViewConsole calculatorViewReal;
     private CalculatorViewConsole calculatorViewEmpty;
 
     @Before
     public void setUp() {
-        calculatorView = new CalculatorViewConsole();
+        calculatorViewMock = new CalculatorViewConsole();
+        calculatorViewReal = new CalculatorViewConsole(new CalculatorControllerImpl());
         calculatorViewEmpty = new CalculatorViewConsole();
 
-        calculatorView.setCalculatorController(calculatorControllerMock);
+        calculatorViewMock.setCalculatorController(calculatorControllerMock);
     }
 
     @Test
     public void shouldCreateObject() {
-        assertThat(calculatorView).isNotNull();
+        assertThat(calculatorViewMock).isNotNull();
+        assertThat(calculatorViewReal).isNotNull();
         assertThat(calculatorViewEmpty).isNotNull();
-        assertThat(calculatorControllerMock).isNotNull();
-        assertThat(new CalculatorViewConsole(calculatorControllerMock)).isNotNull();
     }
 
     @Test
     public void shouldImplements() {
-        assertThat(calculatorView).isInstanceOf(CalculatorView.class);
+        assertThat(calculatorViewMock).isInstanceOf(CalculatorView.class);
+        assertThat(calculatorViewReal).isInstanceOf(CalculatorView.class);
         assertThat(calculatorViewEmpty).isInstanceOf(CalculatorView.class);
-        assertThat(calculatorControllerMock).isInstanceOf(CalculatorController.class);
     }
 
     @Test
@@ -76,7 +78,7 @@ public class CalculatorViewConsoleTest {
 
     @Test
     public void shouldRunDefaultRunner() {
-        calculatorView.startConsoleCalculator();
+        calculatorViewMock.startConsoleCalculator();
 
         verify(calculatorControllerMock).startDefaultCalculate();
         verifyNoMoreInteractions(calculatorControllerMock);
@@ -88,12 +90,26 @@ public class CalculatorViewConsoleTest {
 
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        calculatorView.startConsoleCalculator();
+        calculatorViewMock.startConsoleCalculator();
 
         val actual = byteArrayOutputStream.toString();
         val expected = "-> Hello!" + System.lineSeparator()
                 + "-> I'm your calculator today!" + System.lineSeparator()
                 + "-> To exit print: exit()" + System.lineSeparator();
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldWorkMethodOutputResult() {
+        val byteArrayOutputStream = new ByteArrayOutputStream();
+
+        System.setOut(new PrintStream(byteArrayOutputStream));
+
+        calculatorViewReal.outputResult(System.out::println, 15d);
+
+        val actual = byteArrayOutputStream.toString();
+        val expected = "15.0" + System.lineSeparator();
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -116,6 +132,15 @@ public class CalculatorViewConsoleTest {
     public void shouldThrowNullPointerExceptionWhenControllerIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorViewEmpty.startConsoleCalculator()
-        );
+        ).withMessage(null);
+    }
+
+    @Test
+    public void shouldThrowNullPointerExceptionWhenSystemOutIsNull() {
+        System.setOut(null);
+
+        assertThatNullPointerException().isThrownBy(
+                () -> calculatorViewReal.startConsoleCalculator()
+        ).withMessage(null);
     }
 }
