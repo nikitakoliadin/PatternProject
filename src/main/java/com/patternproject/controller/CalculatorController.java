@@ -1,5 +1,8 @@
 package com.patternproject.controller;
 
+import com.patternproject.model.CalculatorModel;
+import com.patternproject.view.CalculatorView;
+
 import java.io.Reader;
 import java.util.function.DoubleConsumer;
 
@@ -9,29 +12,54 @@ import java.util.function.DoubleConsumer;
 public interface CalculatorController {
 
     /**
-     * This method should be a standard implementation of the calculator that parses the incoming data and
-     * outputs the result. Input and output comas from console.
+     * @return parameter of the calculator model.
+     */
+    CalculatorModel getCalculatorModel();
+
+    /**
+     * @param calculatorModel parameter of the calculator model.
+     */
+    void setCalculatorModel(CalculatorModel calculatorModel);
+
+    /**
+     * @return parameter of the calculator view.
+     */
+    CalculatorView getCalculatorView();
+
+    /**
+     * @param calculatorView parameter of the calculator view.
+     */
+    void setCalculatorView(CalculatorView calculatorView);
+
+    /**
+     * This method should be a standard implementation of the calculator.
+     * Incoming data comes from the console.
+     * Result output to the console.
      */
     void startDefaultCalculate();
 
     /**
-     * This method should take Reader parameter and after calculation of the expression out the result to console
-     * in the new line.
+     * This method should take Reader parameter.
+     * Incoming data comes from the reader.
+     * Result output to the console.
      *
      * @param reader information reading parameters.
      */
     void calculateToConsoleFrom(Reader reader);
 
     /**
-     * This method should take DoubleConsumer parameter and after calculation of the expression out the result
-     * to DoubleConsumer. Empty lines are not calculated.
+     * This method should take DoubleConsumer parameter.
+     * Incoming data comes from the console.
+     * Result output to the resultConsumer.
      *
      * @param resultConsumer result output parameter.
      */
     void calculateFromConsoleTo(DoubleConsumer resultConsumer);
 
     /**
-     * This method read expression to calculate from Reader and then output result to DoubleConsumer.
+     * This method should take Reader and DoubleConsumer parameters.
+     * Incoming data comes from the console.
+     * Result output to the resultConsumer.
      *
      * @param reader         information reading parameters.
      * @param resultConsumer result output parameter.
