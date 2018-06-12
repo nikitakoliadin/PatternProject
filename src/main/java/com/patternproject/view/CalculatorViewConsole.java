@@ -31,7 +31,7 @@ public class CalculatorViewConsole implements CalculatorView {
     }
 
     /**
-     * This method implements outputs information specified by the consumer.
+     * This method implements outputs the result.
      *
      * @param resultConsumer result output parameter.
      * @param result         result of the calculation.
