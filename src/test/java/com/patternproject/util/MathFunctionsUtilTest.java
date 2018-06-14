@@ -50,6 +50,6 @@ public class MathFunctionsUtilTest {
             val constructor = MathFunctionsUtil.class.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
-        }).withCauseInstanceOf(UnsupportedOperationException.class);
+        }).withMessage(null).withCauseInstanceOf(UnsupportedOperationException.class);
     }
 }
