@@ -51,8 +51,6 @@
 
 ## Fix In Future
 * Add methds to view
-* Last test of controller
 
 ## Bugs && Messages
 * CalculatorControllerImpl - IOException mutation test
-* CalculatorModelNashornTest.java - 1 message concat strings
