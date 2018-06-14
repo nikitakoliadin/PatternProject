@@ -56,7 +56,7 @@ public class ApplicationTest {
             val constructor = Application.class.getDeclaredConstructor();
             constructor.setAccessible(true);
             constructor.newInstance();
-        }).withCauseInstanceOf(UnsupportedOperationException.class);
+        }).withMessage(null).withCauseInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
