@@ -71,7 +71,7 @@ public class CalculatorControllerImpl implements CalculatorController {
         log.info("Preparing double consumer to set default output to the console for the calculator " +
                 "was done successful");
 
-        calculate(reader, doubleConsumer);
+        calculateFromTo(reader, doubleConsumer);
     }
 
     /**
@@ -97,7 +97,7 @@ public class CalculatorControllerImpl implements CalculatorController {
                     reader.getEncoding()
             );
 
-            calculate(reader, resultConsumer);
+            calculateFromTo(reader, resultConsumer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -117,7 +117,7 @@ public class CalculatorControllerImpl implements CalculatorController {
      */
     @Override
     public void calculateFromTo(Reader reader, DoubleConsumer resultConsumer) {
-        log.info("Preparing calculator to work!");
+        log.info("Preparing calculator to work");
 
         calculate(reader, resultConsumer);
     }
