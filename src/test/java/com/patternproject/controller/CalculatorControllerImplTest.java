@@ -1,5 +1,6 @@
 package com.patternproject.controller;
 
+import com.patternproject.exception.InvalidInputException;
 import com.patternproject.model.CalculatorModel;
 import com.patternproject.model.CalculatorModelNashorn;
 import com.patternproject.view.CalculatorView;
@@ -310,6 +311,34 @@ public class CalculatorControllerImplTest {
     }
 
     @Test
+    public void shouldCloseInputStreamWhenWorkWasDone() throws IOException {
+        val input = "sin(1)*sin(1)+cos(1)*cos(1)";
+
+        val byteArrayInputStream = spy(new ByteArrayInputStream(input.getBytes()));
+
+        System.setIn(byteArrayInputStream);
+
+        calculatorControllerReal.startDefaultCalculate();
+
+        verify(byteArrayInputStream, times(1)).close();
+    }
+
+    @Test
+    public void shouldCloseInputStreamWhenInvalidInputException() throws IOException {
+        val input = "end";
+
+        val byteArrayInputStream = spy(new ByteArrayInputStream(input.getBytes()));
+
+        System.setIn(byteArrayInputStream);
+
+        assertThatExceptionOfType(InvalidInputException.class).isThrownBy(
+                () -> calculatorControllerReal.startDefaultCalculate()
+        ).withMessage("Failed to evaluate expression");
+
+        verify(byteArrayInputStream, times(1)).close();
+    }
+
+    @Test
     public void shouldThrowNullPointerExceptionWhenModelParameterOfArgsConstructorIsNull() {
         assertThatNullPointerException().isThrownBy(
                 () -> new CalculatorControllerImpl(null, calculatorViewMock)
@@ -392,24 +421,5 @@ public class CalculatorControllerImplTest {
         assertThatNullPointerException().isThrownBy(
                 () -> calculatorControllerReal.calculateToConsoleFrom(new StringReader("15 + 5"))
         ).withMessage(null);
-    }
-
-    @Test
-    public void shouldCloseInputStreamWhenThrowIllegalArgumentException() throws IOException {
-        val input = "end";
-
-        val byteArrayInputStream = spy(new ByteArrayInputStream(input.getBytes()));
-
-        System.setIn(byteArrayInputStream);
-
-        when((calculatorModelMock).calculate("end")).thenThrow(IllegalArgumentException.class);
-
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(
-                () -> calculatorControllerMock.startDefaultCalculate()
-        );
-
-        verify(calculatorModelMock).calculate("end");
-        verify(byteArrayInputStream, times(1)).close();
-        verifyNoMoreInteractions(calculatorModelMock);
     }
 }
