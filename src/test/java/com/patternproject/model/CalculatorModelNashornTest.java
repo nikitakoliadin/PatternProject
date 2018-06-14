@@ -91,12 +91,13 @@ public class CalculatorModelNashornTest {
 
     @Test
     public void shouldCalculateBigExpression() {
-        String expression = "";
+        StringBuilder expression = new StringBuilder();
+
         for (int i = 0; i < 100; i++) {
-            expression += "+(sin(1)*sin(1)+cos(1)*cos(1))+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))";
+            expression.append("+(sin(1)*sin(1)+cos(1)*cos(1))+(sin(1)*sin(1)+cos(1)*cos(1))+(tan(1)*(1/tan(1)))");
         }
 
-        assertThat(calculatorModel.calculate(expression)).isEqualTo(300);
+        assertThat(calculatorModel.calculate(expression.toString())).isEqualTo(300);
     }
 
     @Test
