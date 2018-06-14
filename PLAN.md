@@ -28,6 +28,8 @@
                     * patternproject
                         * controller
                             * [x] CalculatorControllerImplTest
+                        * exception
+                            * [x] InvalidInputExceptionTest
                         * model
                             * [x] CalculatorModelNashornTest
                         * test
