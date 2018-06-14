@@ -77,7 +77,7 @@ public class CalculatorViewConsoleTest {
     }
 
     @Test
-    public void shouldRunDefaultRunner() {
+    public void shouldCallStartConsoleCalculator() {
         calculatorViewMock.startConsoleCalculator();
 
         verify(calculatorControllerMock).startDefaultCalculate();
@@ -85,7 +85,7 @@ public class CalculatorViewConsoleTest {
     }
 
     @Test
-    public void shouldPrintWelcomeWhenCalculatorRun() {
+    public void shouldPrintWelcomeWhenStartConsoleCalculator() {
         val byteArrayOutputStream = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(byteArrayOutputStream));
