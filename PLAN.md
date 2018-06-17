@@ -52,7 +52,8 @@
     * [x] README.md
 
 ## Fix In Future
-* Add methds to view
+* Migrate to Java 10
+* Add methods to view
 
 ## Bugs && Messages
 * CalculatorControllerImpl - IOException mutation test
