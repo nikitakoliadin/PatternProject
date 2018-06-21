@@ -52,7 +52,6 @@
     * [x] README.md
 
 ## Fix In Future
-* Migrate to Java 10
 * Add methods to view
 
 ## Bugs && Messages
