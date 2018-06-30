@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>qthegamep.production</groupId>
-    <artifactId>pattern-project</artifactId>
+    <groupId>com.qthegamep</groupId>
+    <artifactId>patternproject</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -23,7 +23,7 @@
         <!-- Assembly plugin -->
         <assemblyPlugin.version>3.1.0</assemblyPlugin.version>
         <assemblyPlugin.finalName>PatternProject</assemblyPlugin.finalName>
-        <assemblyPlugin.mainClass>com.patternproject.Application</assemblyPlugin.mainClass>
+        <assemblyPlugin.mainClass>com.qthegamep.patternproject.Application</assemblyPlugin.mainClass>
         <assemblyPlugin.appendAssemblyId>false</assemblyPlugin.appendAssemblyId>
 
         <!-- JaCoCo plugin -->
