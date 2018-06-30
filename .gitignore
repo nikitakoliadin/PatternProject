@@ -1,16 +1,9 @@
 # Gitignore file
 
-# Package files
-*.jar
-*.war
-*.ear
-
 # Folders
 .idea/
 target/
-out/
 log/
 
 # Files
 *.iml
-*.class
