@@ -4,9 +4,6 @@ import lombok.experimental.UtilityClass;
 
 import java.util.List;
 
-/**
- * @author Koliadin Nikita
- */
 @UtilityClass
 public class MathFunctionsUtil {
 
