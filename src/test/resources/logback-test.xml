@@ -39,7 +39,7 @@
         <file>${LOG_PATH}/${LOG_NAME_OF_TEST_RESULTS}</file>
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>%date %msg%n</pattern>
+            <pattern>%date%n%msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- This log file will be archived daily or the file size is larger than 10MB -->
@@ -51,7 +51,7 @@
     <appender name="LOG_RESULTS_OF_TEST_TO_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>UTF-8</charset>
-            <pattern>%yellow(%msg%n)</pattern>
+            <pattern>%n%yellow(%msg%n)</pattern>
         </encoder>
     </appender>
 
@@ -61,7 +61,7 @@
     </root>
 
     <!-- Test results logger -->
-    <logger name="testResultLogger" additivity="false">
+    <logger name="TEST_RESULT_LOGGER" additivity="false">
         <level value="info"/>
         <appender-ref ref="LOG_RESULTS_OF_TEST_TO_FILE"/>
         <appender-ref ref="LOG_RESULTS_OF_TEST_TO_CONSOLE"/>
