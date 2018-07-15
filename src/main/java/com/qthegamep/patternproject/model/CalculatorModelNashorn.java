@@ -11,8 +11,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * @author Koliadin Nikita
- *
  * This class implements the calculator using JavaScript engine - Nashorn.
  */
 @Slf4j
