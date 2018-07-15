@@ -16,9 +16,6 @@ import java.lang.reflect.InvocationTargetException;
 import static com.qthegamep.patternproject.Application.main;
 import static org.assertj.core.api.Assertions.*;
 
-/**
- * @author Koliadin Nikita
- */
 public class ApplicationTest {
 
     @ClassRule
