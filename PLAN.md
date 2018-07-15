@@ -46,6 +46,7 @@
                         * [x] ApplicationTest
             * resources
                 * [x] logback-test.xml
+    * [x] .appveyor.yml
     * [x] .gitignove
     * [x] .scrutinizer.yml
     * [x] .travis.yml
@@ -54,10 +55,13 @@
     * [x] README.md
 
 ## Fix In Future
+* Add CircleCI integration
+* Add Shippable CI integration
+* Add Wercker integration
 * Add SonarCloud integration
 * Add BadgeApp integration
 * New class JavaDoc
-* Remove author JavaDoc
+* Length of the test result
 * Add methods to view
 
 ## Bugs && Messages
