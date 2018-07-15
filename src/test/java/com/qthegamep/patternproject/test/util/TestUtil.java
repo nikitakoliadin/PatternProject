@@ -5,9 +5,6 @@ import lombok.experimental.UtilityClass;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-/**
- * @author Koliadin Nikita
- */
 @UtilityClass
 public class TestUtil {
 
