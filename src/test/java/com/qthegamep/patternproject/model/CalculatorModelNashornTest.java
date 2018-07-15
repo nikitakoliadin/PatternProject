@@ -16,9 +16,6 @@ import javax.script.ScriptException;
 
 import static org.assertj.core.api.Assertions.*;
 
-/**
- * @author Koliadin Nikita
- */
 public class CalculatorModelNashornTest {
 
     @ClassRule
