@@ -15,9 +15,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-/**
- * @author Koliadin Nikita
- */
 public class MathFunctionsUtilTest {
 
     @ClassRule
