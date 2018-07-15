@@ -25,14 +25,14 @@ public class TimingRules {
 
         @Override
         protected void finished(long nanos, @NotNull Description description) {
-            val result = String.format("%-137s %7d",
+            val result = String.format("%-144s %7d",
                     description.getDisplayName(),
                     TimeUnit.NANOSECONDS.toMillis(nanos)
             );
 
             className = description.getClassName();
             results.append(result).append(System.lineSeparator());
-            log.info(System.lineSeparator() + result);
+            log.info(result);
         }
     };
 
@@ -49,19 +49,19 @@ public class TimingRules {
 
         @Override
         protected void after() {
-            val infoLine = String.format("Test of %-124s %12s",
+            val infoLine = String.format("Test of %-131s %12s",
                     className,
                     "Duration, ms"
             );
-            log.info(System.lineSeparator()
-                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
+            log.info("--------------------------------------------------------------------------------------------------------------------------------------------------------"
                     + System.lineSeparator()
                     + infoLine
                     + System.lineSeparator()
-                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
+                    + "--------------------------------------------------------------------------------------------------------------------------------------------------------"
                     + System.lineSeparator()
                     + results
-                    + "-------------------------------------------------------------------------------------------------------------------------------------------------"
+                    + "--------------------------------------------------------------------------------------------------------------------------------------------------------"
+                    + System.lineSeparator()
             );
         }
     };
@@ -83,7 +83,7 @@ public class TimingRules {
         }
     };
 
-    private final Logger log = LoggerFactory.getLogger("testResultLogger");
+    private final Logger log = LoggerFactory.getLogger("TEST_RESULT_LOGGER");
 
     private final StringBuilder results = new StringBuilder();
 
