@@ -26,9 +26,6 @@ import java.util.function.DoubleConsumer;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-/**
- * @author Koliadin Nikita
- */
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorControllerImplTest {
 
