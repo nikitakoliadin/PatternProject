@@ -13,9 +13,6 @@ import java.io.IOException;
 import java.util.stream.Stream;
 import java.util.function.DoubleConsumer;
 
-/**
- * @author Koliadin Nikita
- */
 @Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
