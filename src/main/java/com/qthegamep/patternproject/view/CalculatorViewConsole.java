@@ -7,9 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.function.DoubleConsumer;
 
-/**
- * @author Koliadin Nikita
- */
 @Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
