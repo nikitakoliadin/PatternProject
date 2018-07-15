@@ -8,9 +8,6 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 
-/**
- * @author Koliadin Nikita
- */
 @Slf4j
 @UtilityClass
 public class Application {
