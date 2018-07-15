@@ -13,9 +13,6 @@ import javax.script.ScriptException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 
-/**
- * @author Koliadin Nikita
- */
 public class InvalidInputExceptionTest {
 
     @ClassRule
