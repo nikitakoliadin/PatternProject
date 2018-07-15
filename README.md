@@ -5,6 +5,7 @@ This project is a pattern project. You can use it as a template to start. For an
 | Technology     | Badge |
 |:--------------:|:-----:|
 | Travis CI      | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
+| AppVeyor CI    | [![Build status](https://ci.appveyor.com/api/projects/status/ntr0q2s7l56c0et0?svg=true)](https://ci.appveyor.com/project/qThegamEp/patternproject) |
 | Codecov        | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
 | Scrutinizer CI | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/qThegamEp/PatternProject/?branch=master) |
 | Codacy         | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/00445736de354a39aa7fc598766fe5f1)](https://www.codacy.com/app/qThegamEp/PatternProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=qThegamEp/PatternProject&amp;utm_campaign=Badge_Grade) |
@@ -28,6 +29,7 @@ If you want to use this project:
     * [Logback](https://logback.qos.ch/)
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
+    * [AppVeyor CI](https://ci.appveyor.com)
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
     * [Codacy](https://www.codacy.com/)
 * **Code Coverage:** [Codecov.io](https://codecov.io/)
