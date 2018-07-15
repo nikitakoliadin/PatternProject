@@ -1,8 +1,5 @@
 package com.qthegamep.patternproject.model;
 
-/**
- * @author Koliadin Nikita
- */
 @FunctionalInterface
 public interface CalculatorModel {
 
