@@ -23,9 +23,6 @@ import java.io.PrintStream;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-/**
- * @author Koliadin Nikita
- */
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorViewConsoleTest {
 
