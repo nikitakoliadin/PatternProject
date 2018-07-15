@@ -61,7 +61,6 @@
 * Add SonarCloud integration
 * Add BadgeApp integration
 * New class JavaDoc
-* Length of the test result
 * Add methods to view
 
 ## Bugs && Messages
