@@ -4,9 +4,6 @@ import com.qthegamep.patternproject.controller.CalculatorController;
 
 import java.util.function.DoubleConsumer;
 
-/**
- * @author Koliadin Nikita
- */
 public interface CalculatorView {
 
     /**
