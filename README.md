@@ -30,9 +30,10 @@ If you want to use this project:
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [AppVeyor CI](https://ci.appveyor.com)
+* **Code Coverage:** [Codecov.io](https://codecov.io/)
+* **Code Style:**
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
     * [Codacy](https://www.codacy.com/)
-* **Code Coverage:** [Codecov.io](https://codecov.io/)
 * **Chat:** [Gitter](https://gitter.im/)
 * **External Libraries:**
 	* [JetBrains Annotations](https://mvnrepository.com/artifact/org.jetbrains/annotations)
