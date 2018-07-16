@@ -1,0 +1,14 @@
+# Configuration - http://docs.shippable.com/platform/workflow/config/
+language: java
+
+# Continuous Integration With Java - http://docs.shippable.com/ci/java-continuous-integration/
+jdk: oraclejdk10
+
+script: mvn clean install
+
+# Sending CI Notifications To Email - http://docs.shippable.com/ci/email-notifications/
+notifications:
+  email:
+    - qThegamEp@gmail.com
+    on_success: always
+    on_failure: always
