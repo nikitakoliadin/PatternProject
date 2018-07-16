@@ -8,52 +8,52 @@
                     * qthegamep
                         * patternproject
                             * controller
-                                * [x] CalculatorController
-                                * [x] CalculatorControllerImpl
+                                * CalculatorController
+                                * CalculatorControllerImpl
                             * exception
-                                * [x] InvalidInputException
+                                * InvalidInputException
                             * model
-                                * [x] CalculatorModel
-                                * [x] CalculatorModelNashorn
+                                * CalculatorModel
+                                * CalculatorModelNashorn
                             * util
-                                * [x] MathFunctionsUtil
+                                * MathFunctionsUtil
                             * view
-                                * [x] CalculatorView
-                                * [x] CalculatorViewConsole
-                        * [x] Application
+                                * CalculatorView
+                                * CalculatorViewConsole
+                        * Application
             * resources
-                * [x] logback.xml
+                * logback.xml
         * test
             * java
                 * com
                     * qthegamep
                         * patternproject
                             * controller
-                                * [x] CalculatorControllerImplTest
+                                * CalculatorControllerImplTest
                             * exception
-                                * [x] InvalidInputExceptionTest
+                                * InvalidInputExceptionTest
                             * model
-                                * [x] CalculatorModelNashornTest
+                                * CalculatorModelNashornTest
                             * test
                                 * rule
-                                    * [x] TimingRules
+                                    * TimingRules
                                 * util
-                                    * [x] TestUtil
+                                    * TestUtil
                             * util
-                                * [x] MathFunctionsUtilTest
+                                * MathFunctionsUtilTest
                             * view
-                                * [x] CalculatorViewConsoleTest
-                        * [x] ApplicationTest
+                                * CalculatorViewConsoleTest
+                        * ApplicationTest
             * resources
-                * [x] logback-test.xml
-    * [x] .appveyor.yml
-    * [x] .gitignove
-    * [x] .scrutinizer.yml
-    * [x] .travis.yml
-    * [x] LICENSE
-    * [x] PLAN.md
-    * [x] pom.xml
-    * [x] README.md
+                * logback-test.xml
+    * .appveyor.yml
+    * .gitignove
+    * .scrutinizer.yml
+    * .travis.yml
+    * LICENSE
+    * PLAN.md
+    * pom.xml
+    * README.md
 
 ## Fix In Future
 * New JavaDoc
