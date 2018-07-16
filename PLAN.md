@@ -50,17 +50,13 @@
     * [x] .gitignove
     * [x] .scrutinizer.yml
     * [x] .travis.yml
+    * [x] LICENSE
     * [x] PLAN.md
     * [x] pom.xml
     * [x] README.md
 
 ## Fix In Future
-* Add CircleCI integration
-* Add Shippable CI integration (Not supported jdk 10 yet)
-* Add Wercker integration
-* Add SonarCloud integration
-* Add BadgeApp integration
-* New class JavaDoc
+* New JavaDoc
 * Add methods to view
 
 ## Bugs && Messages
