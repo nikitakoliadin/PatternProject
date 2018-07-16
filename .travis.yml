@@ -12,7 +12,7 @@ matrix:
   include:
     - jdk: oraclejdk10
       env:
-        - DESC="Run with jdk10"
+        - DESC="All build with jdk10"
 
 # Codecov - https://github.com/codecov/example-java
 after_success:
