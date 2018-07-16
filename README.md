@@ -34,7 +34,7 @@ If you want to use this project:
 * **Chat:** [Gitter](https://gitter.im/)
 * **Automated Testing:** [JUnit4](https://junit.org/junit4/)
 * **Mutation Testing:** [Pitest](http://pitest.org/)
-* **Log**
+* **Log:**
     * [SLF4J](https://www.slf4j.org/)
     * [Logback](https://logback.qos.ch/)
 * **External Libraries:**
