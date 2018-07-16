@@ -2,7 +2,7 @@
 language: java
 
 # Continuous Integration With Java - http://docs.shippable.com/ci/java-continuous-integration/
-jdk: oraclejdk9
+jdk: oraclejdk8
 
 script:
   - mvn clean install
