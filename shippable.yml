@@ -9,6 +9,7 @@ script: mvn clean install
 # Sending CI Notifications To Email - http://docs.shippable.com/ci/email-notifications/
 notifications:
   email:
-    - qThegamEp@gmail.com
+    recipients:
+        - qThegamEp@gmail.com
     on_success: always
     on_failure: always
