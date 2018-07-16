@@ -4,6 +4,7 @@ This project is a pattern project. You can use it as a template to start. For an
 
 | Technology     | Badge |
 |:--------------:|:-----:|
+| License        | [![LICENSE](https://img.shields.io/badge/LICENSE-Apache%202.0-blue.svg)](LICENSE) |
 | Travis CI      | [![Build Status](https://travis-ci.org/qThegamEp/PatternProject.svg?branch=master)](https://travis-ci.org/qThegamEp/PatternProject) |
 | AppVeyor CI    | [![Build status](https://ci.appveyor.com/api/projects/status/ntr0q2s7l56c0et0?svg=true)](https://ci.appveyor.com/project/qThegamEp/patternproject) |
 | Codecov        | [![codecov](https://codecov.io/gh/qThegamEp/PatternProject/branch/master/graph/badge.svg)](https://codecov.io/gh/qThegamEp/PatternProject) |
@@ -22,11 +23,7 @@ If you want to use this project:
 ## Implementation Information
 * **Programming Language:** Java
 * **Build System:** [Maven](https://maven.apache.org/)
-* **Automated Testing:** [JUnit4](https://junit.org/junit4/)
-* **Mutation Testing:** [Pitest](http://pitest.org/)
-* **Log**
-    * [SLF4J](https://www.slf4j.org/)
-    * [Logback](https://logback.qos.ch/)
+* **License:** [APACHE LICENSE, VERSION 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [AppVeyor CI](https://ci.appveyor.com)
@@ -35,6 +32,11 @@ If you want to use this project:
     * [Scrutinizer CI](https://scrutinizer-ci.com/)
     * [Codacy](https://www.codacy.com/)
 * **Chat:** [Gitter](https://gitter.im/)
+* **Automated Testing:** [JUnit4](https://junit.org/junit4/)
+* **Mutation Testing:** [Pitest](http://pitest.org/)
+* **Log**
+    * [SLF4J](https://www.slf4j.org/)
+    * [Logback](https://logback.qos.ch/)
 * **External Libraries:**
 	* [JetBrains Annotations](https://mvnrepository.com/artifact/org.jetbrains/annotations)
 	* [Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok)
