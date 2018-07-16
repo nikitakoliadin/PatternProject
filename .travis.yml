@@ -19,7 +19,7 @@ matrix:
     - jdk: oraclejdk10
       env:
         - DESC="Unit test and mutation test"
-        - CMD= "mvn clean test"
+        - CMD="mvn clean test"
 
 script: echo $CMD
 
