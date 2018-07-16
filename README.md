@@ -23,7 +23,7 @@ If you want to use this project:
 ## Implementation Information
 * **Programming Language:** Java
 * **Build System:** [Maven](https://maven.apache.org/)
-* **License:** [APACHE LICENSE, VERSION 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* **License:** [Apache license, version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 * **Continuous Integration:**
     * [Travis CI](https://travis-ci.org/)
     * [AppVeyor CI](https://ci.appveyor.com)
