@@ -16,12 +16,6 @@ matrix:
     - jdk: openjdk10
       env:
         - DESC="All build with openjdk10"
-    - jdk: oraclejdk10
-      env:
-        - DESC="Unit test and mutation test"
-        - CMD="mvn clean test"
-
-script: echo $CMD
 
 # Codecov - https://github.com/codecov/example-java
 after_success:
