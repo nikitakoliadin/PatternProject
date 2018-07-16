@@ -1,11 +1,21 @@
 # Travis CI Config - https://docs.travis-ci.com/user/languages/java/
 language: java
-jdk: oraclejdk10
 
 # Improve Build Speed - https://dzone.com/articles/travis-ci-tutorial-java-projects
 cache:
   directories:
   - $HOME/.m2
+
+# Matrix Expansion - https://docs.travis-ci.com/user/build-stages/matrix-expansion/
+matrix:
+  fast_finish: true
+  include:
+    - jdk: oraclejdk9
+      env:
+        - DESC="Run with jdk9"
+    - jdk: oraclejdk10
+      env:
+        - DESC="Run with jdk10"
 
 # Codecov - https://github.com/codecov/example-java
 after_success:
