@@ -2,9 +2,10 @@
 language: java
 
 # Continuous Integration With Java - http://docs.shippable.com/ci/java-continuous-integration/
-jdk: oraclejdk10
+jdk: oraclejdk9
 
-script: mvn clean install
+script:
+  - mvn clean install
 
 # Sending CI Notifications To Email - http://docs.shippable.com/ci/email-notifications/
 notifications:
