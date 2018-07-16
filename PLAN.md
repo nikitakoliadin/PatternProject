@@ -56,7 +56,7 @@
 
 ## Fix In Future
 * Add CircleCI integration
-* Add Shippable CI integration
+* Add Shippable CI integration (Not supported jdk 10 yet)
 * Add Wercker integration
 * Add SonarCloud integration
 * Add BadgeApp integration
