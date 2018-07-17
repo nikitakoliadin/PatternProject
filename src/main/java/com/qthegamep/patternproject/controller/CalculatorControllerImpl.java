@@ -13,6 +13,11 @@ import java.io.IOException;
 import java.util.stream.Stream;
 import java.util.function.DoubleConsumer;
 
+/**
+ * The implementation of the controller that has logging to the file.
+ * The class has a standard implementation of the calculator with I/O to the console
+ * and has an implementation that accepts I/O parameters.
+ */
 @Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
