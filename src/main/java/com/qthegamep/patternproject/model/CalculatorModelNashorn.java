@@ -11,6 +11,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
+ * This class is implementation of the calculator model.
  * This class implements the calculator using JavaScript engine - Nashorn.
  */
 @Slf4j
