@@ -12,7 +12,11 @@ import lombok.val;
 @UtilityClass
 public class Application {
     public static void main(String[] args) {
-        log.info(System.lineSeparator() + "--------------------------------Calculator-------------------------------");
+        log.info(System.lineSeparator() +
+                "------------------------------------------------------------------------------------------------" +
+                "Calculator" +
+                "------------------------------------------------------------------------------------------------"
+        );
 
         log.info("Preparing the application to start");
 
