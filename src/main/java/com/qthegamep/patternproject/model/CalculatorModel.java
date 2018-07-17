@@ -1,5 +1,10 @@
 package com.qthegamep.patternproject.model;
 
+/**
+ * This class is a calculator model.
+ * It must be able to make calculations.
+ * It must accept already processed parameters for calculations.
+ */
 @FunctionalInterface
 public interface CalculatorModel {
 
