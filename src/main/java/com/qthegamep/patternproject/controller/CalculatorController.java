@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.util.function.DoubleConsumer;
 
 /**
- * This class is a calculator controller.
+ * This interface is a calculator controller.
  * It should have a standard console implementation of the calculator,
  * as well as a customizable implementation of the calculator.
  */
