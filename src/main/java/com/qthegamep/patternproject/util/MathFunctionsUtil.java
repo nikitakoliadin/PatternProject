@@ -4,6 +4,9 @@ import lombok.experimental.UtilityClass;
 
 import java.util.List;
 
+/**
+ * This class is a util class that contains auxiliary elements for calculator operation.
+ */
 @UtilityClass
 public class MathFunctionsUtil {
 
