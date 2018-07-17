@@ -7,6 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.function.DoubleConsumer;
 
+/**
+ * This class is a view implementation that has a greeting output at startup
+ * and a calculation result output.
+ * This is console view implementation.
+ */
 @Slf4j
 @NoArgsConstructor
 @AllArgsConstructor
