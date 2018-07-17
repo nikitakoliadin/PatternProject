@@ -56,7 +56,7 @@
     * README.md
 
 ## Fix In Future
-* New JavaDoc
+* View is starting application, move to the controller
 * Add methods to view
 
 ## Bugs && Messages
