@@ -4,6 +4,10 @@ import com.qthegamep.patternproject.controller.CalculatorController;
 
 import java.util.function.DoubleConsumer;
 
+/**
+ * This interface is view of the calculator.
+ * The implementation of this interface should output the results of the calculations.
+ */
 public interface CalculatorView {
 
     /**
