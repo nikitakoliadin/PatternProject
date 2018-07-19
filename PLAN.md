@@ -20,7 +20,7 @@
                             * view
                                 * CalculatorView
                                 * CalculatorViewConsole
-                        * Application
+                            * Application
             * resources
                 * logback.xml
         * test
@@ -43,7 +43,7 @@
                                 * MathFunctionsUtilTest
                             * view
                                 * CalculatorViewConsoleTest
-                        * ApplicationTest
+                            * ApplicationTest
             * resources
                 * logback-test.xml
     * .appveyor.yml
